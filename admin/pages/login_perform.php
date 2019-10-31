@@ -4,9 +4,9 @@ session_start();
     //Kết nối tới database
 include('../../config/dbconfig.php');
 
-$email = $_POST['email'];
+$username = $_POST['username'];
 $password =  md5($_POST['password']);
-$sql_check = mysqli_query($conn,"select * from tbl_user where email = '$email'");
+$sql_check = mysqli_query($conn,"select * from tbl_user where username = '$username'");
 $dem = mysqli_num_rows($sql_check);
 if($dem == 0)
 {
@@ -20,7 +20,7 @@ if($dem == 0)
 }
 else
 {
-	$sql_check2 = mysqli_query($conn,"select * from tbl_user where email = '$email' and password = '$password'");
+	$sql_check2 = mysqli_query($conn,"select * from tbl_user where username = '$username' and password = '$password'");
 	$dem2 = mysqli_num_rows($sql_check2);
 	if($dem2 == 0)
 		echo "
@@ -33,7 +33,7 @@ else
 	{
 		$row = mysqli_fetch_array($sql_check2);
 
-		$_SESSION['email'] = $email;
+		$_SESSION['username'] = $username;
 
 		echo "
 		<script language='javascript'>

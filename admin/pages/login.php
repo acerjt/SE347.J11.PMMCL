@@ -20,7 +20,7 @@
 	<div class="w3layoutscontaineragileits">
 	<h2>Login</h2>
 		<form action="pages/login_perform.php" method="POST">
-			<input type="email" name="email" placeholder="EMAIL" required="">
+			<input type="text" name="username" placeholder="USERNAME" required="">
 			<input type="password" name="password" placeholder="PASSWORD" required="">
 			
 			<div class="aitssendbuttonw3ls">

@@ -89,8 +89,8 @@
                                 </div>
                                 <?php
                                     include("../config/dbconfig.php");
-                                    $email = $_SESSION['email'];
-                                    $sql = "SELECT * from tbl_user where email = '$email'";
+                                    $username = $_SESSION['username'];
+                                    $sql = "SELECT * from tbl_user where username = '$username'";
                                     $run = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_array($run);
                                 ;?>
