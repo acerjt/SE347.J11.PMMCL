@@ -58,6 +58,9 @@
                                         <a href="?page=list_product" title="">Danh sách sản phẩm</a> 
                                     </li>
                                     <li>
+                                        <a href="?page=add_cat" title="">Thêm mới danh mục sản phẩm</a> 
+                                    </li>
+                                    <li>
                                         <a href="?page=list_cat" title="">Danh mục sản phẩm</a> 
                                     </li>
                                 </ul>

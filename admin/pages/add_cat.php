@@ -13,10 +13,13 @@
       <div id="sidebar" class="fl-left">
          <ul id="list-cat">
             <li>
-               <a href="?page=list_post" title="">Danh sách bài viết</a>
+               <a href="?page=add_product" title="">Thêm sản phẩm</a>
             </li>
             <li>
-               <a href="?page=list_cat" title="">Danh mục bài viết</a>
+               <a href="?page=list_product" title="">Danh sách sản phẩm</a>
+            </li>
+            <li>
+               <a href="?page=list_cat" title="">Danh mục sản phẩm</a>
             </li>
          </ul>
       </div>
@@ -26,6 +29,8 @@
                <form method="POST" action="pages/add_cat_perform.php" enctype="multipart/form-data">
                   <label for="title">Tên danh mục</label>
                   <input type="text" name="title" id="title">
+                  <label for="image">Hình ảnh</label>
+                  <input type="file" name="image" id="image">
                   <label >Mô tả</label>
                   <textarea name="content" id="content"></textarea>
                   <button type="submit" name="btn-submit" id="btn-submit">Thêm mới</button>
