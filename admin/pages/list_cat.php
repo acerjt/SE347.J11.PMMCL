@@ -75,7 +75,7 @@
                                             </div> 
                                             <ul class="list-operation fl-right">
                                                 <li><a href="?page=change_cat&id=<?php echo $row['id'];?>" title="Sửa" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                                <li><a href="?page=delete_cat&id=<?php echo $row['id'];?>" title="Xóa" class="delete"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+                                                <li><a href="?page=delete_cat&id=<?php echo $row['id'];?>" title="Xóa" class="delete"  onclick="return confirm('Are you sure?')"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </td>
                                         <td><span class="tbody-text"><?php echo $row["content"];?></span></td>
