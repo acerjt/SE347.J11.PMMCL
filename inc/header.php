@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- favicon
-        ============================================ 
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"> -->
+        ============================================ -->
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"> 
         <!-- Bootstrap CSS
         ============================================ -->
         <link rel="stylesheet" href="public/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
                             <ul>
                                 <li class="currency"><a href="#">USD <i class="fa fa-angle-down"></i> </a>
                                     <ul class="sub-site-option">
-                                        <li><a href="#">Eur</a></li>
+                                        <li><a href="#">VND</a></li>
                                         <li><a href="#">Usd</a></li>
                                     </ul>
                                 </li>
@@ -420,7 +420,7 @@
                     <div class="slider-progress"></div>
                     <div class="slider-content t-lfl s-tb slider-1">
                         <div class="title-container s-tb-c title-compress">
-                            <img src="theme/img/slider/slider-logo.png" alt="">
+                            <img src="theme/img/slider/logo_white.png" alt="">
                             <h1 class="title1">Academy of sport</h1>
                             <h2 class="title2" >sports center james</h2>
                             <h3 class="title3" >Lorem Ipsum is simply dummy text of the printing</h3>
@@ -433,7 +433,7 @@
                     <div class="slider-progress"></div>
                     <div class="slider-content t-lfl s-tb slider-2">
                         <div class="title-container s-tb-c">
-                            <img src="theme/img/slider/slider-logo.png" alt="">
+                            <img src="theme/img/slider/logo_white.png" alt="">
                             <h1 class="title1">Academy of sport2</h1>
                             <h2 class="title2" >sports center james</h2>
                             <h3 class="title3" >Lorem Ipsum is simply dummy text of the printing</h3>
