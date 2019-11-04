@@ -28,11 +28,11 @@
             <div class="section-detail">
                <form method="POST" action="pages/add_cat_perform.php" enctype="multipart/form-data">
                   <label for="title">Tên danh mục</label>
-                  <input type="text" name="title" id="title">
+                  <input type="text" name="title" id="title" required>
                   <label for="image">Hình ảnh</label>
-                  <input type="file" name="image" id="image">
+                  <input type="file" name="image" id="image" required>
                   <label >Mô tả</label>
-                  <textarea name="content" id="content"></textarea>
+                  <textarea name="content" id="content" required></textarea>
                   <button type="submit" name="btn-submit" id="btn-submit">Thêm mới</button>
                </form>
             </div>

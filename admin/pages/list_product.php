@@ -18,7 +18,7 @@
                             <li class="all"> | <span class="count">(<b style="color: #4fa327">
                                 <?php 
                                     $tongsoluong = 0;
-                                    $run0=mysqli_query($conn, "SELECT SUM(amount) as tongsoluong FROM tbl_product");
+                                    $run0=mysqli_query($conn, "SELECT SUM(amount) as tongsoluong FROM tbl_product_detail");
                                     $i = 0;
                                     while ($row0 = mysqli_fetch_array($run0)) {
                                   $i++; $tongsoluong += $row0['tongsoluong'];}echo $tongsoluong;
@@ -72,18 +72,24 @@
                                 if (isset($_POST['s'])) {
                                     if ($_POST['s'] != '') {
                                     $s = $_POST['s'];
-                                        $sql = "SELECT * from tbl_product where id like '%$s%' or name LIKE '%$s%' order by amount asc limit $trang,8";
+                                        $sql = "SELECT * from tbl_product where id like '%$s%' or name LIKE '%$s%'  limit $trang,8";
                                     }
                                     }else{
-                                        $sql = "SELECT * from tbl_product order by amount asc limit $trang,8"; 
+                                        $sql = "SELECT * from tbl_product  limit $trang,8"; 
                                     }
                                    $run = mysqli_query($conn,$sql);
-                                   $i = 0; 
+                                   $i = 0;
+                                  
                                   while ($row = mysqli_fetch_array($run)) {
                                   $i++;
+                                  $run2 = mysqli_query($conn,"select sum(amount) as sum from tbl_product_detail where product_id = $row[id];");
+                                  $row2 = mysqli_fetch_array($run2);
+                                  $query ="select * from tbl_product_detail where product_id = $row[id];";
+                                  $run3 = mysqli_query($conn,$query);
+                                  $row3 =mysqli_fetch_all($run3);
+                                  
                                   ;?>
-
-                                <tr>
+                                     <tr>
                                     <td style="width: 7%;">
                                         <ul class="list-operation fl-left">
                                                 <li><a href="?page=change_product&id=<?php echo $row['id'];?>" title="Sửa" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
@@ -92,7 +98,7 @@
                                     </td>
                                     <th scope="row" style="width: 3%;"><?php echo $i;?></th>
                                     <td style="width: 3%;"><span class="tbody-text"><?php echo $row["id"];?></h3></span>
-                                    <td><span class="tbody-text"><?php echo $row["amount"];?></h3></span>
+                                    <td><span class="tbody-text"><?php echo $row2["sum"];?></h3></span>
                                     <td>
                                         <div class="tbody-thumb">
                                             <a href="?page=change_product&id=<?php echo $row['id'];?>">
@@ -115,6 +121,16 @@
                                         ?>
                                     </span></td>
                                 </tr>
+                                <?php
+                                for($count=0;$count<count($row3);$count++) {
+                                echo '<tr>
+                                <td></td>
+                                    <td><span class="tbody-text">'. $row3[$count][1].'</span></td>
+                                    <td><span class="tbody-text"> '. $row3[$count][2].'</span></td>
+                                    <td><span class="tbody-text"> '. $row3[$count][3].'</span></td>
+                                </tr>';
+                                }
+                                ?>
                                   <?php
                               }
                               ;?>
