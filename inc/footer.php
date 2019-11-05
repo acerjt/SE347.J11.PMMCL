@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="payment-icon">
-                            <img src="img/payment.png" alt="">
+                            <img src="theme/img/payment.png" alt="">
                         </div>
                     </div>
                 </div>
