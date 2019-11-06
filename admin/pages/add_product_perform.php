@@ -31,10 +31,17 @@ if (file_exists('../../images/product/' . $image)) {
     </script>';
     } else {
 
+        $query = "SELECT `AUTO_INCREMENT`
+        FROM  INFORMATION_SCHEMA.TABLES
+        WHERE TABLE_SCHEMA = '$csdl'
+        AND   TABLE_NAME   = 'tbl_product';";
+        $getidproduct = mysqli_query($conn, $query);
+        $idproduct = mysqli_fetch_array($getidproduct);
+        $idproduct = $idproduct['AUTO_INCREMENT'];
+
         // upload multi image
         $targetDir = "../../images/product/";
         $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
-        $idproduct = mysqli_insert_id($conn);
         $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
         if (!empty(array_filter($_FILES['files']['name']))) {
             foreach ($_FILES['files']['name'] as $key => $val) {
@@ -48,6 +55,8 @@ if (file_exists('../../images/product/' . $image)) {
                     // Upload file to server
                     if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
                         // Image db insert sql
+                        // $query = "INSERT INTO tbl_img_product (id_product,file_name) VALUE ('$idproduct', '$val');";
+                        // $addlistimage = mysqli_query($conn, $query);
                         $insertValuesSQL .= "('" . $idproduct . "','" . $fileName . "', NOW()),";
                     } else {
                         $errorUpload .= $_FILES['files']['name'][$key] . ', ';
@@ -89,22 +98,18 @@ if (file_exists('../../images/product/' . $image)) {
         // Cho thực thi câu lệnh SQL trên
         $run = mysqli_query($conn, $sql);
 
-        $sql = "SELECT LAST_INSERT_ID();";
-        $run1 = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_array($run1);
 
-        $order_id = $row[0];
         for ($count = 0; $count < count($_POST["product-size"]); $count++) {
             $size =    $_POST["product-size"][$count];
             $color  =  $_POST["product-color"][$count];
             $amount =    $_POST["product-quantity"][$count];
-            $query = "INSERT INTO tbl_product_detail (product_id, size, color, amount) VALUE ('$order_id', '$size', '$color', '$amount');";
+            $query = "INSERT INTO tbl_product_detail (product_id, size, color, amount) VALUE ('$idproduct', '$size', '$color', '$amount');";
             $run2 = mysqli_query($conn, $query);
         }
 
 
 
-        if ($run && $run1 && $run2) {
+        if ($run && $run2) {
             echo '
 		<script type="text/javascript">
 			alert("Thêm mới sản phẩm thành công!!!");
@@ -118,19 +123,20 @@ if (file_exists('../../images/product/' . $image)) {
             foreach ($_FILES['files']['name'] as $key => $val) {
                 unlink($targetDir . $_FILES["files"]["name"][$key]);
             }
-            $sql = "DELETE FROM tbl_product WHERE tbl_product.id = $order_id";
+            $sql = "DELETE FROM tbl_product WHERE tbl_product.id = $idproduct";
             $run3 = mysqli_query($conn, $sql);
-            $sql = "SELECT LAST_INSERT_ID();";
-            $run1 = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_array($run1);
-    
-            $order_id = $row[0];
+
             for ($count = 0; $count < count($_POST["product-size"]); $count++) {
                 $size =    $_POST["product-size"][$count];
                 $color  =  $_POST["product-color"][$count];
                 $amount =    $_POST["product-quantity"][$count];
-                $query = "DELETE FROM tbl_product_detail  where (product_id = '$order_id' and size = '$size'and color = '$color' and amount = '$amount');";
+                $query = "DELETE FROM tbl_product_detail  where (product_id = '$idproduct' and size = '$size'and color = '$color' and amount = '$amount');";
                 $run2 = mysqli_query($conn, $query);
+            }
+            foreach ($_FILES['files']['name'] as $key => $val) {
+
+                $query = "DELETE FROM tbl_img_product where (id_product = '$idproduct' and file_name = '$val');";
+                $deletelistimage = mysqli_query($conn, $query);
             }
         }
     }

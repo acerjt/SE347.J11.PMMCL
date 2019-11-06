@@ -87,10 +87,11 @@ input[type="text"]{height:20px; vertical-align:top;}
                   <script>
                      var chitiet = CKEDITOR.replace('chitiet');
                   </script>
-                  <label>Hình ảnh</label>
+                  <label>Hình ảnh đại diện</label>
                   <div id="uploadFile">
                      <input type="file" name="image" id="upload-thumb" required>
                   </div>
+                  <label>Các hình ảnh khác</label>
                   <div id="uploadFile">
                      <input type="file" name="files[]" multiple  id="upload-thumb" required>
                   </div>
