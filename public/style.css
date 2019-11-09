@@ -45,7 +45,9 @@ body {
     color: #6a6a6a;
     font-weight: 400;
 }
-
+.payment-method{
+    list-style-type: disc;
+}
 /*----------------------------------------*/
 /*  1. 2. Header style
 /*----------------------------------------*/

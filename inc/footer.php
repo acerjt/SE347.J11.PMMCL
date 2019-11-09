@@ -66,11 +66,11 @@
                             </div>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="theme/site-map.html">Sitemap</a></li>
-                                    <li><a href="theme/privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="theme/your-account.html">Your Account</a></li>
-                                    <li><a href="theme/advance-search.html">Advanced Search</a></li>
-                                    <li><a href="theme/contact.html">Contact Us</a></li>
+                                    <li><a href="?page=site-map">Sitemap</a></li>
+                                    <li><a href="?page=privacy-policy">Privacy Policy</a></li>
+                                    <li><a href="?page=your-account">Your Account</a></li>
+                                    <li><a href="?page=advance-search">Advanced Search</a></li>
+                                    <li><a href="?page=contact">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -82,11 +82,11 @@
                             </div>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="theme/about-us.html">About Us</a></li>
-                                    <li><a href="theme/customer-service.html">Customer Service</a></li>
-                                    <li><a href="theme/blog.html">Blog</a></li>
-                                    <li><a href="theme/orders-returns">Orders and Returns</a></li>
-                                    <li><a href="theme/will-love">Will love</a></li>
+                                    <li><a href="?page=about-us">About Us</a></li>
+                                    <li><a href="?page=customer-service">Customer Service</a></li>
+                                    <li><a href="?page=blog">Blog</a></li>
+                                    <li><a href="?page=orders-returns">Orders and Returns</a></li>
+                                    <li><a href="?page=will-love">Will love</a></li>
                                 </ul>
                             </div>
                         </div>

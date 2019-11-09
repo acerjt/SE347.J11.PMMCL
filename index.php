@@ -6,10 +6,20 @@ if (file_exists($path)) {
 	if($page == 'login'){
     	require "{$path}";
 	}else{
+		if($page == 'home'){
+			require './inc/header.php';
+			require './inc/headerbanner.php';
+			require "{$path}";
+			require './inc/footer.php';
+		}
+		else 
+		{
+			require './inc/head.php';
+			
+			require "{$path}";
+			require './inc/footer.php';
+		}
 		
-		require './inc/header.php';
-		require "{$path}";
-		require './inc/footer.php';
 	}
 } else {
     require "./pages/404.php";

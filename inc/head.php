@@ -158,7 +158,7 @@
                 </div>
             </div>
             <!-- Main menu area-->
-            <div class="mainmenu-area home2 bg-color-tr product-items">
+            <div class="mainmenu-area home1 bg-color-tr product-items">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
