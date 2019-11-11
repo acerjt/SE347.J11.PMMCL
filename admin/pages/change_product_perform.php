@@ -11,6 +11,7 @@ $mota       = $_POST['mota'];
 $size       = $_POST['size'];
 $color       = $_POST['color'];
 $amount       = $_POST['amount'];
+$imagedeleteid = $_POST['delete-image-changing'];
 // Upload hình ảnh
 $image      = $_FILES["image"]["name"];
 $fileanhtam = $_FILES["image"]["tmp_name"];
@@ -37,6 +38,15 @@ if ($id == '' || $name == '' || $price == '' || $category == '') {
             $run_add_product_detail = mysqli_query($conn,$sql_add_product_detail);
         }
         
+        for($count=0;$count<count($_POST['delete-image-changing']);$count++) {
+            $sql = "select file_name FROM tbl_img_product where idpost = '" . $_POST['delete-image-changing'][$count] . "';";
+            $run = mysqli_query($conn,$sql);
+            $row = mysqli_fetch_array($run);
+            $targetDir = "../../images/product/";
+            unlink($targetDir . $row[0]);
+            $sql_delete_image = "DELETE FROM tbl_img_product where idpost = '" . $_POST['delete-image-changing'][$count] . "';";
+            $run_delete_image = mysqli_query($conn,$sql_delete_image);
+        }
 
 
     // upload multi image
@@ -55,7 +65,7 @@ if ($id == '' || $name == '' || $price == '' || $category == '') {
                 // Upload file to server
                 if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){
                     // Image db insert sql
-                    $insertValuesSQL .= "('".$fileName."', NOW()),";
+                    $insertValuesSQL .= "('".$id . "','" .$fileName."', NOW()),";
                 }else{
                     $errorUpload .= $_FILES['files']['name'][$key].', ';
                 }
@@ -66,7 +76,9 @@ if ($id == '' || $name == '' || $price == '' || $category == '') {
         
         if(!empty($insertValuesSQL)){
             $insertValuesSQL = trim($insertValuesSQL,',');
-            $sql_img = "UPDATE tbl_img_product SET file_name='$fileName', uploaded_on=NOW() WHERE id_product= '".$id."' AND idpost='".$id_product."' ";
+            $sql_img = "INSERT INTO tbl_img_product (id_product,file_name,uploaded_on) values $insertValuesSQL ";
+			
+            // $sql_img = "UPDATE tbl_img_product SET file_name='$fileName', uploaded_on=NOW() WHERE id_product= '".$id."' AND idpost='".$id_product."' ";
 			$run_img = mysqli_query($conn, $sql_img);
 
             if($insert){
