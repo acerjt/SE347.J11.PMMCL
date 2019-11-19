@@ -1,5 +1,4 @@
-<?php
- session_start(); ?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="">
 <head>
@@ -9,9 +8,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet"> -->
     <!-- favicon
         ============================================ -->
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"> 
+        <link rel="shortcut icon" type="image/x-icon" href="public/img/favicon.ico"> 
         <!-- Bootstrap CSS
         ============================================ -->
         <link rel="stylesheet" href="public/css/bootstrap.min.css">
@@ -107,14 +107,25 @@
                                             <a href="#">
                                                 <i class="fa fa-bars"></i>
                                             </a>
-                                            <ul>
-                                                <li><a href="#">my account</a></li>
-                                                <li><a href="#">my wishlist</a></li>
-                                                <li><a href="#">my cart</a></li>
+                                            <?php
+                                            if(!$_SESSION['username']){
+                                            echo '<ul>
+                                                <li><a href="#">My cart</a></li>
+                                                <li><a href="#">Checkout</a></li>
+                                                <li><a href="?page=register">Register</a></li>
+                                                <li><a href="?page=login">Login</a></li>
+                                            </ul>';
+                                            }
+                                            else
+                                            echo '<ul>
+                                                <li><a href="?page=my-account">My account</a></li>
+                                                <li><a href="#">My wishlist</a></li>
+                                                <li><a href="#">My cart</a></li>
                                                 <li><a href="#">Checkout</a></li>
                                                 <li><a href="#">Blog</a></li>
-                                                <li><a href="#">Log in</a></li>
-                                            </ul>
+                                                <li><a href="?page=logout">Logout</a></li>
+                                            </ul>';
+                                            ?>
                                         </li>
                                     </ul>
                                 </div>
@@ -122,7 +133,7 @@
                                     <ul>
                                         <li><a href="#"> <img src="theme/img/icon-cart.png" alt=""> <span>2</span> </a>
                                             <div class="cart-info">
-                                                <ul>
+                                                <ul class="list-cart">
                                                     <li>
                                                         <div class="cart-img">
                                                             <img src="theme/img/cart/hunter2.png" alt="">
@@ -273,10 +284,10 @@
                                                     <a href="#">Single Shop</a>
                                                 </span>
                                                 <span>
-                                                    <a href="#">Login page</a>
+                                                    <a href="?page=login">Login page</a>
                                                 </span>
                                                 <span>
-                                                    <a href="#">Ragister page</a>
+                                                    <a href="?page=register">Register page</a>
                                                 </span>
                                                 <span>
                                                     <a href="#">Wishlist</a>
@@ -384,8 +395,8 @@
                                                 <li><a href="#">Shop list</a></li>
                                                 <li><a href="#">Single Shop</a></li>
                                                 <li><a href="#">Wishlist</a></li>
-                                                <li><a href="#">login page</a></li>
-                                                <li><a href="#">register page</a></li>
+                                                <li><a href="?page=login">login page</a></li>
+                                                <li><a href="?page=register">register page</a></li>
                                             </ul>
                                         </li>
                                     </ul>

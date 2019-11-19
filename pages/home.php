@@ -94,8 +94,9 @@
                                     <button onclick="location.href='?page=add_cart&id=<?php echo $row['id'] ?>'" type="submit" class="cart-btn" title="Add to cart">Buy Now</button>
                                     <ul class="add-to-link">
                                         <li><a class="modal-view" data-target="#productModal" data-toggle="modal" href="#"> <i class="fa fa-search"></i></a></li>
-                                        <li><a href="#"> <i class="fa fa-heart-o"></i></a></li>
+                                        <li class="add-cart"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                         <li><a href="#"> <i class="fa fa-refresh"></i></a></li>
+                                
                                     </ul>
                                 </div>
                                 <div class="product-price">
@@ -103,8 +104,8 @@
                                         <a href="?page=detail_product&id=<?php echo $row['id'];?>" title="" class="name-product"><?php echo $row['name']?></a>
                                     </div>
                                     <div class="price-rating">
-                                        <span><?php echo number_format($row['sale']); ?></span>
-                                        <small><?php echo number_format($row['price']); ?></small>
+                                        <span class="prod-sale"><?php echo number_format($row['sale']); ?></span>
+                                        <small class="prod-price"><?php echo number_format($row['price']); ?></small>
                                         <div class="ratings">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -263,3 +264,4 @@
 
     <div style="margin-top: 30px;"></div>
 </div>
+<script src="public/js/add-cart.js"></script>

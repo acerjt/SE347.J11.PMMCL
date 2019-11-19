@@ -4,7 +4,14 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'login';
 $path = "./pages/{$page}.php";
 if (file_exists($path)) {
 	if($page == 'login') {
-	    require "{$path}";
+		if (!isset($_SESSION['username'])) {
+			require "{$path}";
+		}
+		else {
+			require './inc/header.php';
+			require "./pages/list_product.php";
+			require './inc/footer.php';
+		}
 	}else {
 		if (isset($_SESSION['username'])) {
 			require './inc/header.php';

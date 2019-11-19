@@ -10,7 +10,8 @@
       <link href="//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
       <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
       <!-- /font files -->
-      <!-- css files -->
+      <!-- css files -->   
+      <link rel="shortcut icon" type="image/x-icon" href="public/img/favicon.ico">
       <link href="public/css_404/style.css" rel="stylesheet" type="text/css" media="all" />
       <!-- /css files -->
       <!-- js files -->
