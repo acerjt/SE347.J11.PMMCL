@@ -113,7 +113,7 @@
                                     <img src="theme/img/about/Dung.jpg" alt="">
                                     <div class="member-social-profile">
                                         <a href="https://www.facebook.com/nguyen.thi.7161" target="_blank"> <i class="fa fa-facebook"></i> </a>
-                                        <a href="https://github.com/DungNgoc" target="_blank"> <i class="fa fa-twitter"></i> </a>
+                                        <a href="https://github.com/DungNgoc" target="_blank"> <i class="fa fa-github"></i> </a>
                                     </div>
                                 </div>
                                 <h3>Dung N Nguyen</h3>
@@ -126,7 +126,7 @@
                                     <img src="theme/img/about/Toan.jpg" alt="">
                                     <div class="member-social-profile">
                                         <a href="https://www.facebook.com/AcersFuneral" target="_blank"> <i class="fa fa-facebook"></i> </a>
-                                        <a href="https://github.com/acerjt" target="_blank"> <i class="fa fa-twitter"></i> </a>
+                                        <a href="https://github.com/acerjt" target="_blank"> <i class="fa fa-github"></i> </a>
                                     </div>
                                 </div>
                                 <h3>Toan M Phan</h3>

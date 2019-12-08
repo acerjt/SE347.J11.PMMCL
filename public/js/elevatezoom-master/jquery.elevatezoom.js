@@ -258,7 +258,7 @@ if (typeof Object.create !== 'function') {
             //create the div's                                                + ""
             //self.zoomContainer = $('<div/>').addClass('zoomContainer').css({"position":"relative", "height":self.nzHeight, "width":self.nzWidth});
 
-            self.zoomContainer = $('<div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:' + self.nzOffset.left + 'px;top:' + self.nzOffset.top + 'px;height:' + self.nzHeight + 'px;width:' + self.nzWidth + 'px;"></div>');
+            self.zoomContainer = $('<div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:' + 350.5 + 'px;top:' + 246.433 + 'px;height:' + self.nzHeight + 'px;width:' + self.nzWidth + 'px;"></div>');
             $('body').append(self.zoomContainer);
 
 

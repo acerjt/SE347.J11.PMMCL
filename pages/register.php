@@ -115,58 +115,49 @@
                                     <div>
                                         <input class="lastname" type="text" name="lastname" placeholder="Last Name" required>
                                     </div>
-                                    <table>
-                                        <tr>
-                                            <th>Tỉnh thành </th>
-                                            <th>Quận Huyện </th>
-                                            <th>Xã Phường </th>
+                                    <div>
 
-                                        </tr>
-                                        <tr>
-                                            <td>
+                                        <input class="province-group chosen-value" type="text" value="" placeholder="Type to filter">
+                                        <ul class="value-list province-ul" required>
 
-                                                <select class="province-group" name="province" required>
-                                                    <option value="">- Select -</option>
-                                                    <?php
-                                                    // Fetch Department
-                                                    $sql_department = "SELECT * FROM devvn_tinhthanhpho";
-                                                    $department_data = mysqli_query($conn, $sql_department);
-                                                    while ($row = mysqli_fetch_assoc($department_data)) {
-                                                        $departid = $row['matp'];
-                                                        $depart_name = $row['name'];
+                                            <?php
+                                            // Fetch Department
+                                            $sql = "SELECT * FROM devvn_tinhthanhpho";
+                                            $data = mysqli_query($conn, $sql);
+                                            while ($row = mysqli_fetch_assoc($data)) {
+                                                $provinceid = $row['matp'];
+                                                $name = $row['name'];
 
-                                                        // Option
-                                                        echo "<option value='" . $departid . "' >" . $depart_name . "</option>";
-                                                    }
-                                                    ?>
-                                                </select>
+                                                // Option
+                                                echo "<li class='province-li' value='" . $provinceid . "' >" . $name . "</li>";
+                                            }
+                                            ?>
+                                        </ul>
+                                        <input class="province-value" type="hidden" value="">
+                                    </div>
+                                    <div>
 
-                                            </td>
-                                            <td>
-                                                <div class="clear"></div>
+                                        <div class="clear"></div>
+                                        <input class="district-group chosen-value" type="text" value="" placeholder="Type to filter">
+                                        <ul class="value-list district-ul" required>
 
+                                        </ul>
+                                        <input class="district-value" type="hidden" value="">
+                                    </div>
 
-                                                <select class="district-group" name="district" required>
-                                                    <option value="">- Select -</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <div class="clear"></div>
-                                                <select class="ward-group" name="ward" required>
-                                                    <option value="">- Select -</option>
-                                                </select>
+                                    <div>
 
-                                            </td>
-                                        </tr>
+                                        <div class="clear"></div>
+                                        <input class="ward-group chosen-value" type="text" value="" placeholder="Type to filter">
+                                        <ul class="value-list ward-ul" required>
+
+                                        </ul>
+                                        <input class="ward-value" type="hidden" value="">
+                                    </div>
 
 
 
 
-
-
-
-                                        <div>
-                                    </table>
 
                                     <div>
 
@@ -253,7 +244,11 @@
         });
     </script>
     <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/province-filter.js"></script>
     <script src="public/js/script.js"></script>
+    <script src="public/js/onchangeprovinceanddistrict.js"></script>
+    <script src="public/js/district-filter.js"></script>
+
 </body>
 
 </html>

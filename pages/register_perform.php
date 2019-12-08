@@ -23,7 +23,7 @@ if (isset($_POST['email_check'])) {
     exit();
 }
 if (isset($_POST['getdistrict'])) {
-    $provinceid = $_POST['provinceid'];   // department id
+    $provinceid = "0".$_POST['provinceid'];   // department id
 
     $sql = "SELECT maqh,name FROM devvn_quanhuyen WHERE matp= " . $provinceid;
 
@@ -44,7 +44,7 @@ if (isset($_POST['getdistrict'])) {
     exit();
 }
 if (isset($_POST['getward'])) {
-    $districtid = $_POST['districtid'];   // department id
+    $districtid = "0".$_POST['districtid'];   // department id
 
     $sql = "SELECT xaid,name FROM devvn_xaphuongthitran WHERE maqh= " . $districtid;
 
@@ -70,10 +70,10 @@ if (isset($_POST['save'])) {
     $password = $_POST['password'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $phonenumber = $_POST['phonenumber'];
-    $province = $_POST['province'];
-    $district = $_POST['district'];
-    $ward = $_POST['ward'];
+    $phonenumber = "0".$_POST['phonenumber'];
+    $province = "0".$_POST['province'];
+    $district = "0".$_POST['district'];
+    $ward = "0".$_POST['ward'];
     $sql = "SELECT * FROM tbl_customer WHERE username='$username'";
     $results = mysqli_query($conn, $sql);
 

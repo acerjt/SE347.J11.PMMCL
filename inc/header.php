@@ -1,93 +1,100 @@
-
+<?php
+include('pages/function.php');
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="">
+
 <head>
     <meta charset="utf-8">
     <meta http-quiv="x-ua-compatible" content="ie=edge">
     <title>Home 2 || TradeZ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!-- <base href="http://localhost/webproject/"> -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet"> -->
     <!-- favicon
         ============================================ -->
-        <link rel="shortcut icon" type="image/x-icon" href="public/img/favicon.ico"> 
-        <!-- Bootstrap CSS
+    <link rel="shortcut icon" type="image/x-icon" href="public/img/favicon.ico">
+    <!-- Bootstrap CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/bootstrap.min.css">
-        <!-- Bootstrap CSS
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/font-awesome.min.css">
-        <!-- owl.carousel CSS
+    <link rel="stylesheet" href="public/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/owl.carousel.css">
-        <link rel="stylesheet" href="public/css/owl.theme.css">
-        <link rel="stylesheet" href="public/css/owl.transitions.css">
-        <!-- jquery-ui CSS
+    <link rel="stylesheet" href="public/css/owl.carousel.css">
+    <link rel="stylesheet" href="public/css/owl.theme.css">
+    <link rel="stylesheet" href="public/css/owl.transitions.css">
+    <!-- jquery-ui CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/jquery-ui.css">
-        <!-- meanmenu CSS
+    <link rel="stylesheet" href="public/css/jquery-ui.css">
+    <!-- meanmenu CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/meanmenu.min.css">
-        <!-- nivoslider CSS
+    <link rel="stylesheet" href="public/css/meanmenu.min.css">
+    <!-- nivoslider CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/lib/css/nivo-slider.css">
-        <link rel="stylesheet" href="public/lib/css/preview.css">
-        <!-- animate CSS
+    <link rel="stylesheet" href="public/lib/css/nivo-slider.css">
+    <link rel="stylesheet" href="public/lib/css/preview.css">
+    <!-- animate CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/animate.css">
-        <!-- magic CSS
+    <link rel="stylesheet" href="public/css/animate.css">
+    <!-- magic CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/magic.css">
-        <!-- normalize CSS
+    <link rel="stylesheet" href="public/css/magic.css">
+    <!-- normalize CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/normalize.css">
-        <!-- main CSS
+    <link rel="stylesheet" href="public/css/normalize.css">
+    <!-- main CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/main.css">
-        <!-- style CSS
+    <link rel="stylesheet" href="public/css/main.css">
+    <!-- style CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/style.css">
-        <!-- responsive CSS
+    <link rel="stylesheet" href="public/style.css">
+    <!-- responsive CSS
         ============================================ -->
-        <link rel="stylesheet" href="public/css/responsive.css">
-        <!-- modernizr JS
+    <link rel="stylesheet" href="public/css/responsive.css">
+    <!-- modernizr JS
         ============================================ -->
-        <script src="theme/js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="theme/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="public/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
 
 </head>
+
 <body>
     <header>
-    <!--header area-->
-        <div class="top-link">
-            <div class="container">
-                <div class="row">
-                 <!--This is 3 col for currency, language, call support-->
-                    <div class="col-md-7 col-md-offset-3 col-sm-9 hidden-xs">
-                        <div class="site-option">
-                            <ul>
-                                <li class="currency"><a href="#">USD <i class="fa fa-angle-down"></i> </a>
-                                    <ul class="sub-site-option">
-                                        <li><a href="#">VND</a></li>
-                                        <li><a href="#">Usd</a></li>
-                                    </ul>
-                                </li>
-                                <li class="language"><a href="#">English <i class="fa fa-angle-down"></i> </a>
-                                    <ul class="sub-site-option">
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">VietNamese</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+        <!--header area-->
+        <div class="header-group">
+            <div class="top-link">
+                <div class="container">
+                    <div class="row">
+                        <!--This is 3 col for currency, language, call support-->
+                        <div class="col-md-7 col-md-offset-3 col-sm-9 hidden-xs">
+                            <div class="site-option">
+                                <ul>
+                                    <li class="currency"><a href="#">USD <i class="fa fa-angle-down"></i> </a>
+                                        <ul class="sub-site-option">
+                                            <li><a href="#">VND</a></li>
+                                            <li><a href="#">Usd</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="language"><a href="#">English <i class="fa fa-angle-down"></i> </a>
+                                        <ul class="sub-site-option">
+                                            <li><a href="#">English</a></li>
+                                            <li><a href="#">VietNamese</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="call-support">
+                                <p>Call support free: <span> 0335 157 358</span></p>
+                            </div>
                         </div>
-                        <div class="call-support">
-                            <p>Call support free: <span> 0335 157 358</span></p>
-                        </div>
-                    </div>
-                    <!--This is 3 col for search, menu-account, cart details -->
-                    <div class="col-md-2 col-sm-3">
-                        <div class="dashboard">
+                        <!--This is 3 col for search, menu-account, cart details -->
+                        <div class="col-md-2 col-sm-3">
+                            <div class="dashboard">
                                 <div class="account-menu">
                                     <ul>
                                         <li class="search">
@@ -108,18 +115,17 @@
                                                 <i class="fa fa-bars"></i>
                                             </a>
                                             <?php
-                                            if(!$_SESSION['username']){
-                                            echo '<ul>
-                                                <li><a href="#">My cart</a></li>
+                                            if (!$_SESSION['username']) {
+                                                echo '<ul>
+                                                <li><a href="?page=my-cart">My cart</a></li>
                                                 <li><a href="#">Checkout</a></li>
                                                 <li><a href="?page=register">Register</a></li>
                                                 <li><a href="?page=login">Login</a></li>
                                             </ul>';
-                                            }
-                                            else
-                                            echo '<ul>
+                                            } else
+                                                echo '<ul>
                                                 <li><a href="?page=my-account">My account</a></li>
-                                                <li><a href="#">My wishlist</a></li>
+                                                <li><a href="?page=wishlist">My wishlist</a></li>
                                                 <li><a href="#">My cart</a></li>
                                                 <li><a href="#">Checkout</a></li>
                                                 <li><a href="#">Blog</a></li>
@@ -131,35 +137,101 @@
                                 </div>
                                 <div class="cart-menu">
                                     <ul>
-                                        <li><a href="#"> <img src="theme/img/icon-cart.png" alt=""> <span>2</span> </a>
-                                            <div class="cart-info">
-                                                <ul class="list-cart">
-                                                    <li>
-                                                        <div class="cart-img">
-                                                            <img src="theme/img/cart/hunter2.png" alt="">
-                                                        </div>
-                                                        <div class="cart-details">
-                                                            <a href="#">Biti's Hunter</a>
-                                                            <p>1 x $174.00</p>
-                                                        </div>
-                                                        <div class="btn-edit"></div>
-                                                        <div class="btn-remove"></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="cart-img">
-                                                            <img src="theme/img/cart/hunter.png" alt="">
-                                                        </div>
-                                                        <div class="cart-details">
-                                                            <a href="#">Biti's nữ</a>
-                                                            <p>1 x $777.00</p>
-                                                        </div>
-                                                        <div class="btn-edit"></div>
-                                                        <div class="btn-remove"></div>
-                                                    </li>
-                                                </ul>
-                                                <h3>Subtotal: <span> $951.00</span></h3>
-                                                <a href="#" class="checkout">checkout</a>
-                                            </div>
+                                        <?php
+                                        $cartnum = count($_SESSION['cart']);
+                                        include('config/dbconfig.php');
+                                        $query = "SELECT count(productid) as count FROM tbl_cart WHERE customerid = $_SESSION[customerid]";
+                                        $run = mysqli_query($conn, $query);
+                                        $ucartnum = mysqli_fetch_array($run);
+                                        $ucartnum = $ucartnum['count'];
+                                        ?>
+                                        <li><a href="?page=my-cart"> <img src="theme/img/icon-cart.png" alt=""> <span>
+                                                    <?php if ($ucartnum)
+                                                        echo $ucartnum;
+                                                    else if ($cartnum && !$_SESSION['customerid'])
+                                                        echo $cartnum;
+                                                    else
+                                                        echo 0;
+                                                    ?>
+                                                </span> </a>
+                                            <?php if (!$_SESSION['username']) { ?>
+                                                <div class="cart-info">
+                                                    <ul class="list-cart">
+
+                                                        <?php
+                                                            $total = 0;
+                                                            foreach ($_SESSION['cart'] as $cartkey => $cartvalue) {
+                                                                $price = adddotstring($cartvalue['sale']);
+                                                                ?>
+                                                            <li class="cart-product-id" value="<?php echo $cartkey ?>">
+                                                                <div class="cart-img">
+                                                                    <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $cartvalue['image'] ?>" alt="">
+
+                                                                </div>
+                                                                <a class="cart-product-name" href="#"><?php echo $cartvalue['name'] ?></a>
+                                                                <p style="text-align: right; font-size:14px;margin-top: 20px;"><?php echo $cartvalue['quantity'] ?> x <?php echo adddotstring($cartvalue['sale']) ?>
+
+                                                                    <?php $total += $cartvalue['sale'] * $cartvalue['quantity'] ?>
+                                                                </p>
+                                                                <div class="cart-details">
+
+                                                                </div>
+                                                                <div class="btn-edit"></div>
+                                                                <div class="btn-remove remove-cart"></div>
+                                                            </li>
+
+
+                                                        <?php }
+
+                                                            ?>
+
+                                                    </ul>
+                                                    <h3>Subtotal: <span> <?php echo adddotstring($total) ?></span></h3>
+                                                    <a href="#" class="checkout">checkout</a>
+                                                </div>
+                                            <?php } else { ?>
+                                                <div class="cart-info">
+                                                    <ul class="list-cart">
+
+                                                        <?php
+                                                            $query = "SELECT * FROM tbl_cart WHERE customerid = $_SESSION[customerid]";
+                                                            $run = mysqli_query($conn, $query);
+                                                            $cart = mysqli_fetch_all($run);
+                                                            $total = 0;
+                                                            for ($i = 0; $i < count($cart); $i++) {
+                                                                $query = "SELECT * FROM tbl_product WHERE id =" . $cart[$i][2];
+                                                                $run = mysqli_query($conn, $query);
+                                                                $product = mysqli_fetch_array($run);
+                                                                $price = adddotstring($product['sale']);
+                                                                ?>
+                                                            <li class="cart-product-id" value="<?php echo $cart[$i][2] ?>">
+                                                                <div class="cart-img">
+                                                                    <a href="?page=product-detail&productid=<?php echo $cart[$i][2]?>">
+                                                                    <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $product['image'] ?>" alt="">
+                                                                    </a>
+                                                                </div>
+                                                                <a class="cart-product-name" href="?page=product-detail&productid=<?php echo $cart[$i][2]?>"><?php echo $product['name'] ?></a>
+                                                                <p style="text-align: right; font-size:14px;margin-top: 20px;"><?php echo $cart[$i][3] ?> x <?php echo adddotstring($product['sale']) ?>
+
+                                                                    <?php $total += $product['sale'] * $cart[$i][3] ?>
+                                                                </p>
+                                                                <div class="cart-details">
+                                                                <input class="cart-id" type="hidden" value="<?php echo $cart[$i][0] ?>">
+                                                                </div>
+                                                                <div class="btn-edit"></div>
+                                                                <div class="btn-remove remove-cart"></div>
+                                                            </li>
+
+
+                                                        <?php }
+
+                                                            ?>
+
+                                                    </ul>
+                                                    <h3>Subtotal: <span> <?php echo adddotstring($total) ?></span></h3>
+                                                    <a href="#" class="checkout">checkout</a>
+                                                </div>
+                                            <?php } ?>
                                         </li>
                                     </ul>
                                 </div>
@@ -169,7 +241,7 @@
                 </div>
             </div>
             <!-- Main menu area-->
-            <div class="mainmenu-area home2 bg-color-tr product-items">
+            <div class="mainmenu-area home1 product-items">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
@@ -189,16 +261,15 @@
                                             <div class="mega-menu women">
                                                 <div class="part-1">
                                                     <?php
-                                                      include("config/dbconfig.php");
-                                                      $sql = "SELECT * from tbl_category";
-                                                      $run = mysqli_query($conn, $sql);
-                                                      $i = 0;
-                                                      while ($row = mysqli_fetch_array($run)) {
-                                                        $i++;
-                                                    ;?>
-                                                    <span>
-                                                        <a href="?page=category_product&id=<?php echo $row['id']?>"><?php echo $row['title']?></a>
-                                                    </span>
+                                                    include("config/dbconfig.php");
+                                                    $sql = "SELECT * from tbl_category";
+                                                    $run = mysqli_query($conn, $sql);
+                                                    $i = 0;
+                                                    while ($row = mysqli_fetch_array($run)) {
+                                                        $i++;; ?>
+                                                        <span>
+                                                            <a href="?page=category_product&id=<?php echo $row['id'] ?>"><?php echo $row['title'] ?></a>
+                                                        </span>
                                                     <?php } ?>
                                                 </div>
                                                 <div class="part-2">
@@ -209,19 +280,18 @@
                                             </div>
                                         </li>
                                         <li class="mega-men"><a href="#">Men</a>
-                                             <div class="mega-menu women">
+                                            <div class="mega-menu women">
                                                 <div class="part-1">
                                                     <?php
-                                                      include("config/dbconfig.php");
-                                                      $sql = "SELECT * from tbl_category";
-                                                      $run = mysqli_query($conn, $sql);
-                                                      $i = 0;
-                                                      while ($row = mysqli_fetch_array($run)) {
-                                                        $i++;
-                                                    ;?>
-                                                    <span>
-                                                        <a href="?page=category_product&id=<?php echo $row['id']?>"><?php echo $row['title']?></a>
-                                                    </span>
+                                                    include("config/dbconfig.php");
+                                                    $sql = "SELECT * from tbl_category";
+                                                    $run = mysqli_query($conn, $sql);
+                                                    $i = 0;
+                                                    while ($row = mysqli_fetch_array($run)) {
+                                                        $i++;; ?>
+                                                        <span>
+                                                            <a href="?page=category_product&id=<?php echo $row['id'] ?>"><?php echo $row['title'] ?></a>
+                                                        </span>
                                                     <?php } ?>
                                                 </div>
                                                 <div class="part-2">
@@ -407,10 +477,14 @@
 
                 </div>
             </div>
-        </header>
-        <!-- header area end -->
-                            <!-- slider area start -->
-        
-            
+        </div>
+        <div class="transparent-header"></div>
+    </header>
+    <!-- header area end -->
+    <!-- slider area start -->
+
+
     </header>
 </body>
+
+<script src="public/js/remove-cart.js"></script>

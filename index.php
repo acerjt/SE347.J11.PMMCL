@@ -6,11 +6,25 @@ $path = "./pages/{$page}.php";
 if (file_exists($path) && !isset($_SESSION['username'])) {
 
 	if($page == 'my-account' ||
-		$page == 'my-wishlist') {
+		$page == 'wishlist') {
+		$page = 'home';
+	}
+	if ($page == 'home') {
 		require './inc/header.php';
 		require './inc/headerbanner.php';
-		require "./pages/home.php";
+		require "{$path}";
 		require './inc/footer.php';
+	} else {
+		require './inc/header.php';
+		require "{$path}";
+		require './inc/footer.php';
+	}
+}
+
+else if (file_exists($path)) {
+	if($page == 'login' ||
+		$page == 'register') {
+		$page = 'home';
 	}
 	else if ($page == 'home') {
 		require './inc/header.php';
@@ -18,20 +32,7 @@ if (file_exists($path) && !isset($_SESSION['username'])) {
 		require "{$path}";
 		require './inc/footer.php';
 	} else {
-		require './inc/head.php';
-		require "{$path}";
-		require './inc/footer.php';
-	}
-}
-
-else if (file_exists($path)) {
-	if ($page == 'home') {
 		require './inc/header.php';
-		require './inc/headerbanner.php';
-		require "{$path}";
-		require './inc/footer.php';
-	} else {
-		require './inc/head.php';
 		require "{$path}";
 		require './inc/footer.php';
 	}

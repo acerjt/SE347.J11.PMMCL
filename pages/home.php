@@ -72,12 +72,12 @@
                                     <span>new</span>
                                 </div>
                                 <div class="product-img">
-                                    <a href="?page=detail_product&id=<?php echo $row['id'];?>" title="" class="thumb">
+                                    <a href="?page=product-detail&productid=<?php echo $row['id'];?>" title="" class="thumb">
                                         <img src="index.php/../images/product/<?php echo $row['image']?>" class="primary-img-1" alt="">
                                         <?php 
                                         include("config/dbconfig.php");
                                          $id_temp = $row['id'];
-                                        $sql_img = "SELECT file_name from tbl_img_product WHERE  id_product = '".$id_temp."' LIMIT 1" ;
+                                        $sql_img = "SELECT file_name from tbl_img_product WHERE  id_product = '".$id_temp."' LIMIT 9" ;
                                         /*$sql_img = "SELECT file_name from tbl_img_product as A left JOIN tbl_product as B ON A.id_product=B.id LIMIT 2" ;*/
                                             $run_img = mysqli_query($conn, $sql_img);
                                             $i = 0; 
@@ -94,8 +94,8 @@
                                     <button onclick="location.href='?page=add_cart&id=<?php echo $row['id'] ?>'" type="submit" class="cart-btn" title="Add to cart">Buy Now</button>
                                     <ul class="add-to-link">
                                         <li><a class="modal-view" data-target="#productModal" data-toggle="modal" href="#"> <i class="fa fa-search"></i></a></li>
-                                        <li class="add-cart"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="#"> <i class="fa fa-refresh"></i></a></li>
+                                        <li class="add-wishlist" value="<?php echo $row['id'];?>"><a><i class="fa fa-heart"></i></a></li>
+                                        <li class="add-cart" value="<?php echo $row['id'];?>"><a> <i class="fa fa-shopping-cart"></i></a></li>
                                 
                                     </ul>
                                 </div>
@@ -150,7 +150,7 @@
                                     $sql = "SELECT * from tbl_product where category = '$category' and amount > 0 order by id";
                                     $run = mysqli_query($conn, $sql);
                                     $i = 0;
-                                    while ($row = mysqli_fetch_array($run)) {
+                                    while ($row = mysqli_fetch_all($run)) {
                                         $i++;
                                         ;?>
                                         <div class="col-md-12">
@@ -159,12 +159,12 @@
                                                     <span>new</span>
                                                 </div>
                                                 <div class="product-img">
-                                                    <a href="?page=detail_product&id=<?php echo $row['id'];?>" title="" class="thumb">
+                                                    <a href="?page=product-detail&productid=<?php echo $row['id'];?>" title="" class="thumb">
                                                         <img src="index.php/../images/product/<?php echo $row['image']?>" class="primary-img-1" alt="">
                                                         <?php 
                                                         include("config/dbconfig.php");
                                                          $id_temp = $row['id']; /*echo $name_temp;*/
-                                                        $sql_img = "SELECT file_name from tbl_img_product WHERE  id_product = '".$id_temp."' LIMIT 1" ;
+                                                        $sql_img = "SELECT file_name from tbl_img_product WHERE  id_product = '".$id_temp."' LIMIT 6" ;
                                                             $run_img = mysqli_query($conn, $sql_img);
                                                             $i = 0; 
                                                              while ($row2 = mysqli_fetch_array($run_img)) {
@@ -184,7 +184,7 @@
                                                 </div>
                                                 <div class="product-price">
                                                     <div class="product-name">
-                                                        <a href="?page=detail_product&id=<?php echo $row['id'];?>" title="" class="name-product"><?php echo $row['name']?></a>
+                                                        <a href="?page=product-detail&productid=<?php echo $row['id'];?>" title="" class="name-product"><?php echo $row['name']?></a>
                                                     </div>
                                                     <div class="price-rating">
                                                         <span><?php echo number_format($row['sale']); ?></span>
@@ -264,4 +264,5 @@
 
     <div style="margin-top: 30px;"></div>
 </div>
+<script src="public/js/add-wishlist.js"></script>
 <script src="public/js/add-cart.js"></script>
