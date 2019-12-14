@@ -38,11 +38,16 @@ if (isset($_POST['action']) && $_POST['action'] == "add" && !$_SESSION['username
         }
     }
 } else if (isset($_POST['action']) && $_POST['action'] == "add" && $_SESSION['username']) {
+    // if($_POST['productdetailid']){
+    //     $query = "SELECT * FROM tbl_cart where customerid = $_SESSION[customerid] and productid = '$id'";
+    // $run = mysqli_query($conn, $query);
+    // }
+    
     $id = intval($_POST['productid']);
     $query = "SELECT * FROM tbl_cart where customerid = $_SESSION[customerid] and productid = '$id'";
     $run = mysqli_query($conn, $query);
     if (mysqli_num_rows($run) == 0) {
-        // $query = "SELECT * FROM tbl_product_detail WHERE product_id = '$id' limit 1";
+         // $query = "SELECT * FROM tbl_product_detail WHERE product_id = '$id' limit 1";
         // $run = mysqli_query($conn,$query);
         // $productdetail = mysqli_fetch_array($run);
         $query = "INSERT INTO tbl_cart (customerid,productid,quantity) VALUES ('$_SESSION[customerid]','$id','1')";

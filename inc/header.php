@@ -165,10 +165,11 @@ include('pages/function.php');
                                                                 ?>
                                                             <li class="cart-product-id" value="<?php echo $cartkey ?>">
                                                                 <div class="cart-img">
+                                                                    <a href="?page=product-detail&productid=<?php echo $cartkey ?>">
                                                                     <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $cartvalue['image'] ?>" alt="">
-
+                                                                    </a>
                                                                 </div>
-                                                                <a class="cart-product-name" href="#"><?php echo $cartvalue['name'] ?></a>
+                                                                <a class="cart-product-name" href="?page=product-detail&productid=<?php echo $cartkey ?>"><?php echo $cartvalue['name'] ?></a>
                                                                 <p style="text-align: right; font-size:14px;margin-top: 20px;"><?php echo $cartvalue['quantity'] ?> x <?php echo adddotstring($cartvalue['sale']) ?>
 
                                                                     <?php $total += $cartvalue['sale'] * $cartvalue['quantity'] ?>

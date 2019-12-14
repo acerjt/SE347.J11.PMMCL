@@ -33,7 +33,7 @@ else
 	{
 		$row = mysqli_fetch_array($sql_check2);
 
-		$_SESSION['username'] = $username;
+		$_SESSION['adminusername'] = $username;
 
 		echo "
 		<script language='javascript'>

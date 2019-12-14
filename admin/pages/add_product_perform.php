@@ -114,7 +114,7 @@ if (file_exists('../../images/product/' . $image)) {
 		<script type="text/javascript">
 			alert("Thêm mới sản phẩm thành công!!!");
 			window.location.href="' . $site_admin . '?page=list_product";
-        </script>';;
+        </script>';
         } else {
 
             $targetDir = "../../images/product/";
@@ -138,6 +138,11 @@ if (file_exists('../../images/product/' . $image)) {
                 $query = "DELETE FROM tbl_img_product where (id_product = '$idproduct' and file_name = '$val');";
                 $deletelistimage = mysqli_query($conn, $query);
             }
+            echo '
+            <script type="text/javascript">
+                alert("Thêm mới sản phẩm không thành công!!!");
+                window.location.href="' . $site_admin . '?page=list_product";
+            </script>';
         }
     }
 }

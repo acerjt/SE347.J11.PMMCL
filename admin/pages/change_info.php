@@ -24,7 +24,7 @@
             <div class="section-detail">
                <form method="POST" action =pages/change_info_perform.php>
                   <?php
-                      $username = $_SESSION['username'];
+                      $username = $_SESSION['adminusername'];
                       include("../config/dbconfig.php");
                       mysqli_set_charset($conn, 'UTF8');
                       $sql = "SELECT * from tbl_user where username = '$username'";

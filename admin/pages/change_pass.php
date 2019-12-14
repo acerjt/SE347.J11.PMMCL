@@ -20,7 +20,7 @@
          </ul>
       </div>
                      <?php
-                      $username = $_SESSION['username'];
+                      $username = $_SESSION['adminusername'];
                       include("../config/dbconfig.php");
                       mysqli_set_charset($conn, 'UTF8');
                       $sql = "SELECT * from tbl_user where username = '$username'";

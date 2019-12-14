@@ -5,6 +5,8 @@
         //Get the HTML of whole page
         var oldPage = document.body.innerHTML;
 
+        // oldPage.removeClass("product-img");
+
         //Reset the page's HTML with div's HTML only
         document.body.innerHTML =
             "<html><head><title></title></head><body>" +
@@ -115,7 +117,7 @@
                             <thead>
                                 <tr>
                                     <td class="thead-text">STT</td>
-                                    <td class="thead-text">Ảnh sản phẩm</td>
+                                    <td class="thead-text product-img">Ảnh sản phẩm</td>
                                     <td class="thead-text">Tên sản phẩm</td>
                                     <td class="thead-text">Đơn giá</td>
                                     <td class="thead-text">Số lượng</td>
@@ -138,7 +140,7 @@
                                             ?>
                                         <tr>
                                             <td class="thead-text"><?php echo $j; ?></td>
-                                            <td class="thead-text">
+                                            <td class="thead-text product-img">
                                                 <div class="thumb">
                                                     <img src="index.php/../../images/product/<?php echo $row2["image"]; ?>" alt="">
                                                 </div>

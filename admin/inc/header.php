@@ -92,7 +92,7 @@
                                 </div>
                                 <?php
                                     include("../config/dbconfig.php");
-                                    $username = $_SESSION['username'];
+                                    $username = $_SESSION['adminusername'];
                                     $sql = "SELECT * from tbl_user where username = '$username'";
                                     $run = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_array($run);
