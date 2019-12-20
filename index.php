@@ -6,7 +6,7 @@ $path = "./pages/{$page}.php";
 if (file_exists($path) && !isset($_SESSION['username'])) {
 
 	if($page == 'my-account' ||
-		$page == 'wishlist') {
+		$page == 'wishlist'|| $page == 'my-order') {
 		$page = 'home';
 	}
 	if ($page == 'home') {

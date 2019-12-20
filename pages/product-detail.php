@@ -34,7 +34,7 @@ include('config/dbconfig.php');
                                 $run = mysqli_query($conn, $query);
                                 $category = mysqli_fetch_array($run)
                                 ?>
-                                <li><a href='#' title="go to gender brand"><?php echo $category['title'] ?><span>/</span></a> </li>
+                                <li><a href='?page=category_product&id=<?php echo $category['id'] ?>' ><?php echo $category['title'] ?><span>/</span></a> </li>
                                 <li><strong><?php echo $product['name'] ?></strong></li>
                             </ul>
                         </div>
@@ -119,7 +119,7 @@ include('config/dbconfig.php');
                                                         ?></span></p>
                             </div>
                             <div class="item-price">
-                                <span><?php echo adddotstring($product['price']) ?></span>
+                                <span><?php echo number_format($product['price']). " VNĐ" ?></span>
                             </div>
                             <div class="single-product-info">
                                 <p><?php echo $product['description'] ?> </p>
@@ -192,7 +192,7 @@ include('config/dbconfig.php');
                                         <label>Qty: </label>
                                         <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
                                     </div>
-                                    <button class="add-cart cart-btn" value="<?php echo $_GET['productid'] ?>">Add to cart</button>
+                                    <button class="add-cart cart-btn" value="">Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -468,7 +468,7 @@ include('config/dbconfig.php');
                                                 <?php echo $relatedproduct['name'] ?></a>
                                         </div>
                                         <div class="price-rating">
-                                            <span><?php echo $relatedproduct['sale'] ?></span>
+                                            <span><?php echo    number_format($relatedproduct['sale']).'đ' ?></span>
                                         </div>
                                     </div>
                                 </div>

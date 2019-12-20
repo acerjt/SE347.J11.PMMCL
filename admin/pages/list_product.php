@@ -138,9 +138,9 @@
                                     <td style="border: 0px solid black;"></td>
                                     <td style="border: 0px solid black;"></td>
                                     <td style="border: 0px solid black;"></td>
-                                    <td style="border: 0px solid black;"><span class="tbody-text">' . $row3[$count][1] . '</span></td>
-                                    <td style="border: 0px solid black;"><span class="tbody-text"> ' . $row3[$count][2] . '</span></td>
+                                    <td style="border: 0px solid black;"><span class="tbody-text">' . $row3[$count][2] . '</span></td>
                                     <td style="border: 0px solid black;"><span class="tbody-text"> ' . $row3[$count][3] . '</span></td>
+                                    <td style="border: 0px solid black;"><span class="tbody-text"> ' . $row3[$count][4] . '</span></td>
                                 </tr>';
                                         }
                                         ?>

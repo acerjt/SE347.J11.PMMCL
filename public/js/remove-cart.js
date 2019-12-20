@@ -1,7 +1,7 @@
 $('document').ready(function() {
     $('.remove-cart').on('click', function() {
-        var productid = $('.remove-cart').parent().val();
-        var cartid = $('.remove-cart').parent().find('.cart-id').val();
+        var productdetailid = $(this).parent().val();
+        var cartid = $(this).closest('li').find('.cart-id').val();
         // proceed with form submission
         $.ajax({
             url: 'pages/remove-cart.php',
@@ -9,7 +9,7 @@ $('document').ready(function() {
             data: {
                 'removecart' : 1,
                 'cartid': cartid,
-                'productid': productid,
+                'productdetailid': productdetailid,
             },
             success: function(response) {
                 if(response == 'success') {
@@ -28,6 +28,8 @@ $('document').ready(function() {
         var productid = $(this).closest("tr")  
         .find(".productid").text();
         var cartid = $(this).val();
+        var productdetailid = $(this).closest("tr")  
+        .find(".productdetailid").text();
         $.ajax({
             url: 'pages/remove-cart.php',
             type: 'post',
@@ -35,6 +37,7 @@ $('document').ready(function() {
                 'removecart' : 1,
                 'cartid': cartid,
                 'productid' : productid,
+                'productdetailid':productdetailid
             },
             success: function(response) {
                 if(response == 'success') {

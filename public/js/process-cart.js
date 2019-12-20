@@ -6,7 +6,8 @@ $('#cart-process-order').on('submit', function() {
         $('.cart-item-check').each(function() {
             if ($(this).is(":checked")) {
                 var prodctid = $(this).closest("tr").find(".productid").text();
-                var productname = $(this).closest("tr").find(".cart-item-img").find(".cart-product-name-2").text();
+                var productdetailid = $(this).closest("tr").find(".productdetailid").text();
+                var productname = $(this).closest("tr").find(".cart-item-img").find(".cart-name").text();
                 var productimg = $(this).closest("tr").find(".cart-item-img").find('img').attr('src');
                 var productquantity = $(this).closest("tr").find(".quantity-product").find('.pquantity').val();
                 var productprice = $(this).closest("tr").find(".table-item-price").find('.cart-item-price').text();
@@ -16,6 +17,7 @@ $('#cart-process-order').on('submit', function() {
                 productprice = parseInt(productprice.replace(patt, ""));
                 var obj = {
                     id: prodctid,
+                    productdetailid: productdetailid,
                     name: productname,
                     image: productimg,
                     quantity: productquantity,

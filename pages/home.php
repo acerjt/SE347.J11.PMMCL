@@ -109,8 +109,8 @@
                                         <a href="?page=detail_product&id=<?php echo $row['id']; ?>" title="" class="name-product"><?php echo $row['name'] ?></a>
                                     </div>
                                     <div class="price-rating">
-                                        <span class="prod-sale"><?php echo number_format($row['sale']); ?></span>
-                                        <small class="prod-price"><?php echo number_format($row['price']); ?></small>
+                                        <span class="prod-sale"><?php echo number_format($row['sale']).'đ'; ?></span>
+                                        <small class="prod-price"><?php echo number_format($row['price']).'đ'; ?></small>
                                         <div class="ratings">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -143,7 +143,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="product-title">
-                                        <h2><?php echo $rowcat['title'] ?></h2>
+                                       <a href="?page=category_product&id=<?php echo $rowcat['id'] ?>">   <h2><?php echo $rowcat['title'] ?></h2></a>  
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="actions">
-                                                    <button onclick="location.href='?page=add_cart&id=<?php echo $row['id'] ?>'" type="submit" class="cart-btn" title="Add to cart">Buy Now</button>
+                                                    <button  value="<?php echo $row['id']; ?>" type="submit" class="cart-btn add-cart1" title="Add to cart">Buy Now</button>
                                                     <ul class="add-to-link">
                                                         <li><a class="modal-view" data-target="#productModal" data-toggle="modal" href="#"> <i class="fa fa-search"></i></a></li>
                                                         <li><a href="#"> <i class="fa fa-heart-o"></i></a></li>
@@ -201,8 +201,8 @@
                                                         <a href="?page=product-detail&productid=<?php echo $row['id']; ?>" title="" class="name-product"><?php echo $row['name'] ?></a>
                                                     </div>
                                                     <div class="price-rating">
-                                                        <span><?php echo number_format($row['sale']); ?></span>
-                                                        <small><?php echo number_format($row['price']); ?></small>
+                                                        <span><?php echo number_format($row['sale']).'đ'; ?></span>
+                                                        <small><?php echo number_format($row['price']).'đ'; ?></small>
                                                         <div class="ratings">
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>

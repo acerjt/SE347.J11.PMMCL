@@ -10,6 +10,7 @@
 
     <!-- favicon
         ============================================ -->
+      
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
     <!-- Google Fonts
@@ -60,8 +61,8 @@
     <!-- modernizr JS
         ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
 
+</head>
 <body>
     <div class="shopping-cart">
         <div class="container">
@@ -80,17 +81,16 @@
                     <div class="cart-table">
                         <form id="cart-process-order" action="?page=process-order" method="post">
                             <table class="table table-hover">
-                                <?php 
-                                    if($_SESSION['username'])
-                                    {
-                                        include('config/dbconfig.php');
-                                        $query = "SELECT count(productid) as count FROM tbl_cart WHERE customerid = $_SESSION[customerid]";
-                                        $run = mysqli_query($conn, $query);
-                                        $cartnum = mysqli_fetch_array($run);
-                                        $cartnum = $cartnum['count'];
-                                        $total = 0;
-                                        if ($cartnum) {
-                                            echo '<tbody>
+                                <?php
+                                if ($_SESSION['username']) {
+                                    include('config/dbconfig.php');
+                                    $query = "SELECT count(productdetailid) as count FROM tbl_cart WHERE customerid = $_SESSION[customerid]";
+                                    $run = mysqli_query($conn, $query);
+                                    $cartnum = mysqli_fetch_array($run);
+                                    $cartnum = $cartnum['count'];
+                                    $total = 0;
+                                    if ($cartnum) {
+                                        echo '<tbody>
                                         <tr>
                                             <td>
                                                 <input class="cart-item-check-all" type="checkbox" />
@@ -101,71 +101,107 @@
                                             <td></td>
                                         </tr>';
                                         $query = "SELECT * FROM tbl_cart WHERE customerid = $_SESSION[customerid]";
-                                                            $run = mysqli_query($conn, $query);
-                                                            $cart = mysqli_fetch_all($run);
-                                                            for ($i = 0; $i < count($cart); $i++) {
-                                                                $query = "SELECT * FROM tbl_product WHERE id =" . $cart[$i][2];
-                                                                $run = mysqli_query($conn, $query);
-                                                                $product = mysqli_fetch_array($run);
-                                                                $price = adddotstring($product['sale']);
-                                                                
-                                
-                                                ?>
-        
-                                                <tr>
-                                                    <td class="cart-check">
-                                                        <input class="cart-item-check" type="checkbox" autocomplete="off" />
-                                                    </td>
-                                                    <td class="cart-item-img">
-                                                        <a href="single-product.html">
-                                                            <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $product['image'] ?>" alt="">
-                                                        </a>
-        
-                                                        <div class="cart-product-name-1">
-                                                            <a class="cart-product-name-2" href="single-product.html"><?php echo $product['name'] ?></a>
+                                        $run = mysqli_query($conn, $query);
+                                        $cart = mysqli_fetch_all($run);
+                                        for ($i = 0; $i < count($cart); $i++) {
+                                            $query = "SELECT * FROM tbl_product,tbl_product_detail WHERE tbl_product_detail.product_id = tbl_product.id and tbl_product_detail.id =" . $cart[$i][2];
+                                            $run = mysqli_query($conn, $query);
+                                            $product = mysqli_fetch_array($run);
+                                            $price = adddotstring($product['sale']);
+
+
+                                            ?>
+
+                                            <tr>
+                                                <td class="cart-check">
+                                                    <input class="cart-item-check" type="checkbox" autocomplete="off" />
+                                                </td>
+                                                <td class="cart-item-img" style="display: flex">
+                                                    <a href="?page=product-detail&productid=<?php echo $product['product_id'] ?>">
+                                                        <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $product['image'] ?>" alt="">
+                                                    </a>
+                                                    <div style="width: 80%;">
+                                                        <div class="cart-name" style="margin-left:12px;margin-bottom:12px;">
+                                                            <a href="?page=product-detail&productid=<?php echo $product['product_id'] ?> "><?php echo $product['name'] ?></a>
                                                         </div>
-                                                    </td>
-                                                    <!-- <td class="cart-product-name">
+                                                        <div class="detail-product" style="display: flex">
+                                                            <?php
+                                                                        $query = "SELECT  DISTINCT size FROM tbl_product_detail WHERE product_id = '$product[product_id]'";
+                                                                        $run1 = mysqli_query($conn, $query);
+                                                                        ?>
+                                                            <div class="input-box" style="margin-left:12px ; width:30%">
+                                                                <select class="size-box">
+
+                                                                    <?php
+                                                                                while ($productsizelist = mysqli_fetch_array($run1)) {
+                                                                                    if ($productsizelist['size'] == $product['size'])
+                                                                                        continue;
+                                                                                    echo  ' <option value="' . $product['product_id'] . '">' . $productsizelist['size'] . '</option>';
+                                                                                }
+                                                                                ?>
+                                                                    <option value="<?php echo $product['product_id'] ?>" selected><?php echo $product['size'] ?></option>
+
+                                                                </select>
+                                                            </div>
+                                                            <?php
+                                                                        $query = "SELECT  color FROM tbl_product_detail WHERE product_id = '$product[product_id]' and size ='$product[size]'";
+                                                                        $run1 = mysqli_query($conn, $query);
+                                                                        ?>
+                                                            <div class="input-box" style="margin-left:12px; width:50%">
+                                                                <select class="color-box">
+                                                                    <option value="<?php echo $product['product_id'] ?>" selected><?php echo $product['color'] ?></option>
+                                                                    <?php
+                                                                                while ($productcolorlist = mysqli_fetch_array($run1)) {
+                                                                                    if ($productcolorlist['color'] == $product['color'])
+                                                                                        continue;
+                                                                                    echo  ' <option value="' . $product['product_id'] . '">' . $productcolorlist['color'] . '</option>';
+                                                                                }
+                                                                                ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <!-- <td class="cart-product-name">
                                                     </td> -->
-        
-        
-                                                    <td class="table-item-price">
-                                                        <div class="cart-item-align cart-item-price"><?php echo adddotstring($product['sale']) ?> VND</div>
-                                                        <div class="cart-actions">
-                                                            <button type="button" class="add-wishlist" value="<?php echo $product['id'] ?>" data-toggle="tooltip" title="Add to wishlist"> <i class="fa fa-heart fa-1x"></i> </button>
-                                                            <button type="button" class="remove-cart-my-cart" value="<?php echo $cart[$i][0] ?>" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
-                                                        </div>
-                                                    </td>
-                                                    <td class="table-item-quantity quantity-product">
-                                                        <input class="cart-item-align cart-item-quantity pquantity" type="number" value="<?php echo $cart[$i][3] ?>">
-                                                        <span></span>
-                                                    </td>
-                                                    <td>
-                                                        <div class="cart-item-align cart-item-subtotal"><?php echo adddotstring($product['sale'] * $cart[$i][3]) . " VND";
-                                                                                                                // $total += $cartvalue['sale'] * $cartvalue['quantity']; 
-                                                                                                                ?>
-                                                        </div>
-                                                    </td>
-        
-                                                    <td class="productid" style="display:none;"><?php echo $product['id'] ?></td>
-                                                    <td class="cartid" style="display:none;"><?php echo $cart[$i][0] ?></td>
-        
-        
-        
-        
-                                                </tr>
-        
-                                                </tbody>
-                                        <?php }
-                                        } 
-                                    }
-                                    else {
-                                
-                                ?>
-                                <?php $cartnum = count($_SESSION['cart']);
-                                $total = 0;
-                                if ($cartnum) {
-                                    echo '<tbody>
+
+
+                                                <td class="table-item-price">
+                                                    <div class=" cart-item-price"><?php echo adddotstring($product['sale']) ?> VND</div>
+                                                    <div class="cart-actions">
+                                                        <button type="button" class="add-wishlist" value="<?php echo $product['product_id'] ?>" data-toggle="tooltip" title="Add to wishlist"> <i class="fa fa-heart fa-1x"></i> </button>
+                                                        <button type="button" class="remove-cart-my-cart" value="<?php echo $cart[$i][0] ?>" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
+                                                    </div>
+                                                </td>
+                                                <td class="table-item-quantity quantity-product">
+                                                    <input class=" cart-item-quantity pquantity" type="number" value="<?php echo $cart[$i][3] ?>">
+                                                    <span></span>
+                                                </td>
+                                                <td>
+                                                    <div class=" cart-item-subtotal"><?php echo adddotstring($product['sale'] * $cart[$i][3]) . " VND";
+                                                                                                    // $total += $cartvalue['sale'] * $cartvalue['quantity']; 
+                                                                                                    ?>
+                                                    </div>
+                                                </td>
+
+                                                <td class="productid" style="display:none;"><?php echo $product['product_id'] ?></td>
+                                                <td class="cartid" style="display:none;"><?php echo $cart[$i][0] ?></td>
+                                                <td class="productdetailid" style="display:none;"><?php echo $product['id'] ?></td>
+
+
+
+                                            </tr>
+
+                                            </tbody>
+                                    <?php }
+                                        }
+                                    } else {
+
+                                        ?>
+                                    <?php $cartnum = count($_SESSION['cart']);
+                                        $total = 0;
+                                        if ($cartnum) {
+                                            echo '<tbody>
                                 <tr>
                                     <td>
                                         <input class="cart-item-check-all" type="checkbox" />
@@ -175,54 +211,101 @@
                                     <td></td>
                                     <td></td>
                                 </tr>';
-                                    foreach ($_SESSION['cart'] as $cartkey => $cartvalue) {
-                                        $price = adddotstring($cartvalue['sale']);
-                                        ?>
+                                            foreach ($_SESSION['cart'] as $cartkey => $cartvalue) {
+                                                $price = adddotstring($cartvalue['sale']);
+                                                ?>
 
-                                        <tr>
-                                            <td class="cart-check">
-                                                <input class="cart-item-check" type="checkbox" autocomplete="off" />
-                                            </td>
-                                            <td class="cart-item-img">
-                                                <a href="single-product.html">
-                                                    <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $cartvalue['image'] ?>" alt="">
-                                                </a>
+                                            <tr>
+                                                <td class="cart-check">
+                                                    <input class="cart-item-check" type="checkbox" autocomplete="off" />
+                                                </td>
+                                                <td class="cart-item-img" style="display: flex">
+                                                    <a href="single-product.html">
+                                                        <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $cartvalue['image'] ?>" alt="">
+                                                    </a>
 
-                                                <div class="cart-product-name-1">
-                                                    <a class="cart-product-name-2" href="single-product.html"><?php echo $cartvalue['name'] ?></a>
-                                                </div>
-                                            </td>
-                                            <!-- <td class="cart-product-name">
+
+                                                    <div style="width: 80%;">
+                                                        <div class="cart-name" style="margin-left:12px;margin-bottom:12px;">
+                                                            <a href="?page=product-detail&productid=<?php echo $cartkey ?> "><?php echo $cartvalue['name'] ?></a>
+                                                        </div>
+                                                        <div class="detail-product" style="display: flex">
+                                                            <?php
+                                                                        $query = "SELECT  DISTINCT size FROM tbl_product_detail WHERE product_id = '$cartvalue[productid]'";
+                                                                        $run1 = mysqli_query($conn, $query);
+                                                                        ?>
+                                                            <div class="input-box" style="margin-left:12px ; width:30%">
+                                                                <select class="size-box">
+
+                                                                    <?php
+                                                                                while ($productsizelist = mysqli_fetch_array($run1)) {
+                                                                                    if ($productsizelist['size'] == $cartvalue['size'])
+                                                                                        continue;
+                                                                                    echo  ' <option value="' . $cartvalue['productid'] . '">' . $productsizelist['size'] . '</option>';
+                                                                                }
+                                                                                ?>
+                                                                    <option value="<?php echo $cartvalue['productid'] ?>" selected><?php echo $cartvalue['size'] ?></option>
+
+                                                                </select>
+                                                            </div>
+                                                            <?php
+                                                                        $query = "SELECT  color FROM tbl_product_detail WHERE product_id = '$cartvalue[productid]' and size ='$cartvalue[size]'";
+                                                                        $run1 = mysqli_query($conn, $query);
+                                                                        ?>
+                                                            <div class="input-box" style="margin-left:12px; width:50%">
+                                                                <select class="color-box">
+                                                                    <option value="<?php echo $cartvalue['productid'] ?>" selected><?php echo $cartvalue['color'] ?></option>
+                                                                    <?php
+                                                                                while ($productcolorlist = mysqli_fetch_array($run1)) {
+                                                                                    if ($productcolorlist['color'] == $cartvalue['color'])
+                                                                                        continue;
+                                                                                    echo  ' <option value="' . $cartvalue['productid'] . '">' . $productcolorlist['color'] . '</option>';
+                                                                                }
+                                                                                ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <!-- <div class="cart-product-name-1">
+                                                        <a class="cart-product-name-2" href="single-product.html"><?php echo $cartvalue['name'] ?></a>
+                                                    </div> -->
+                                                </td>
+                                                <!-- <td class="cart-product-name">
                                             </td> -->
 
 
-                                            <td class="table-item-price">
-                                                <div class="cart-item-align cart-item-price"><?php echo adddotstring($cartvalue['sale']) ?> VND</div>
-                                                <div class="cart-actions">
-                                                    <button type="button" class="remove-cart-my-cart" value="<?php echo $product['id']; ?>" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
-                                                </div>
-                                            </td>
-                                            <td class="table-item-quantity quantity-product">
-                                                <input class="cart-item-align cart-item-quantity pquantity" type="number" value="<?php echo $cartvalue['quantity'] ?>">
-                                                <span></span>
-                                            </td>
-                                            <td>
-                                                <div class="cart-item-align cart-item-subtotal"><?php echo adddotstring($cartvalue['sale'] * $cartvalue['quantity']) . " VND";
-                                                                                                        // $total += $cartvalue['sale'] * $cartvalue['quantity']; 
-                                                                                                        ?>
-                                                </div>
-                                            </td>
+                                                <td class="table-item-price">
+                                                    <div class="cart-item-align cart-item-price"><?php echo adddotstring($cartvalue['sale']) ?> VND</div>
+                                                    <div class="cart-actions">
+                                                        <button type="button" class="remove-cart-my-cart" value="<?php echo $cartvalue['id']; ?>" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
+                                                    </div>
+                                                </td>
+                                                <td class="table-item-quantity quantity-product">
+                                                    <input class="cart-item-align cart-item-quantity pquantity" type="number" value="<?php echo $cartvalue['quantity'] ?>">
+                                                    <span></span>
+                                                </td>
+                                                <td>
+                                                    <div class="cart-item-align cart-item-subtotal"><?php echo adddotstring($cartvalue['sale'] * $cartvalue['quantity']) . " VND";
+                                                                                                                // $total += $cartvalue['sale'] * $cartvalue['quantity']; 
+                                                                                                                ?>
+                                                    </div>
+                                                </td>
 
-                                            <td class="productid" style="display:none;"><?php echo $cartkey ?></td>
+                                                <td class="productid" style="display:none;"><?php echo $cartvalue['productid'] ?></td>
+                                                <td class="productdetailid" style="display:none;"><?php echo $cartkey ?></td>
 
 
 
-                                        </tr>
 
-                                        </tbody>
+                                            </tr>
+
+                                            </tbody>
                                 <?php }
-                                } 
-                            }?>
+                                    }
+                                } ?>
                             </table>
                         </form>
                         <div class="shopping-button">
@@ -231,7 +314,14 @@
                             </div>
                             <div class="shopping-cart-left">
                                 <button class="clear-cart">Clear Shopping Cart</button>
-                                <button class="update-cart">Update Shopping Cart</button>
+                                <?php
+                                if (!$_SESSION['customerid']) {
+                                    ?>
+                                    <button class="update-cart1">Update Shopping Cart</button>
+                                <?php } else if ($_SESSION['customerid']) {
+                                    ?>
+                                    <button class="update-cart">Update Shopping Cart</button>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -377,6 +467,7 @@
     <script src="public/js/cart-item-check.js"></script>
     <script src="public/js/update-quantity-onchange.js"></script>
     <script src="public/js/process-cart.js"></script>
+    <script src="public/js/onchangesizecart.js"></script>
 </body>
 
 </html>

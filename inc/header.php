@@ -126,9 +126,9 @@ include('pages/function.php');
                                                 echo '<ul>
                                                 <li><a href="?page=my-account">My account</a></li>
                                                 <li><a href="?page=wishlist">My wishlist</a></li>
-                                                <li><a href="#">My cart</a></li>
+                                                <li><a href="?page=my-cart">My cart</a></li>
                                                 <li><a href="#">Checkout</a></li>
-                                                <li><a href="#">Blog</a></li>
+                                                <li><a href="?page=my-order">My Order</a></li>
                                                 <li><a href="?page=logout">Logout</a></li>
                                             </ul>';
                                             ?>
@@ -138,9 +138,10 @@ include('pages/function.php');
                                 <div class="cart-menu">
                                     <ul>
                                         <?php
+                                        if(isset($_SESSION['cart']))
                                         $cartnum = count($_SESSION['cart']);
                                         include('config/dbconfig.php');
-                                        $query = "SELECT count(productid) as count FROM tbl_cart WHERE customerid = $_SESSION[customerid]";
+                                        $query = "SELECT count(productdetailid) as count FROM tbl_cart WHERE customerid = $_SESSION[customerid]";
                                         $run = mysqli_query($conn, $query);
                                         $ucartnum = mysqli_fetch_array($run);
                                         $ucartnum = $ucartnum['count'];
@@ -165,11 +166,11 @@ include('pages/function.php');
                                                                 ?>
                                                             <li class="cart-product-id" value="<?php echo $cartkey ?>">
                                                                 <div class="cart-img">
-                                                                    <a href="?page=product-detail&productid=<?php echo $cartkey ?>">
+                                                                    <a href="?page=product-detail&productid=<?php echo $cartvalue['productid'] ?>">
                                                                     <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $cartvalue['image'] ?>" alt="">
                                                                     </a>
                                                                 </div>
-                                                                <a class="cart-product-name" href="?page=product-detail&productid=<?php echo $cartkey ?>"><?php echo $cartvalue['name'] ?></a>
+                                                                <a class="cart-product-name" href="?page=product-detail&productid=<?php echo $cartvalue['productid'] ?>"><?php echo $cartvalue['name'] ?></a>
                                                                 <p style="text-align: right; font-size:14px;margin-top: 20px;"><?php echo $cartvalue['quantity'] ?> x <?php echo adddotstring($cartvalue['sale']) ?>
 
                                                                     <?php $total += $cartvalue['sale'] * $cartvalue['quantity'] ?>
@@ -200,18 +201,18 @@ include('pages/function.php');
                                                             $cart = mysqli_fetch_all($run);
                                                             $total = 0;
                                                             for ($i = 0; $i < count($cart); $i++) {
-                                                                $query = "SELECT * FROM tbl_product WHERE id =" . $cart[$i][2];
+                                                                $query = "SELECT * FROM tbl_product,tbl_product_detail WHERE tbl_product_detail.product_id = tbl_product.id and tbl_product_detail.id =" . $cart[$i][2];
                                                                 $run = mysqli_query($conn, $query);
                                                                 $product = mysqli_fetch_array($run);
                                                                 $price = adddotstring($product['sale']);
                                                                 ?>
-                                                            <li class="cart-product-id" value="<?php echo $cart[$i][2] ?>">
+                                                            <li class="cart-product-id" value="<?php echo $product['product_id'] ?>">
                                                                 <div class="cart-img">
-                                                                    <a href="?page=product-detail&productid=<?php echo $cart[$i][2]?>">
+                                                                    <a href="?page=product-detail&productid=<?php echo $product['product_id']?>">
                                                                     <img style="width:100px; height: 100px" src="index.php/../images/product/<?php echo $product['image'] ?>" alt="">
                                                                     </a>
                                                                 </div>
-                                                                <a class="cart-product-name" href="?page=product-detail&productid=<?php echo $cart[$i][2]?>"><?php echo $product['name'] ?></a>
+                                                                <a class="cart-product-name" href="?page=product-detail&productid=<?php echo $product['product_id']?>"><?php echo $product['name'] ?></a>
                                                                 <p style="text-align: right; font-size:14px;margin-top: 20px;"><?php echo $cart[$i][3] ?> x <?php echo adddotstring($product['sale']) ?>
 
                                                                     <?php $total += $product['sale'] * $cart[$i][3] ?>

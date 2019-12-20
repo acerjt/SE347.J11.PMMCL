@@ -11,11 +11,14 @@ $('document').ready(function() {
         var quantity = $(this).val();
         var cartid = $(this).closest("tr")
         .find(".cartid").text();
+        var productdetailid = $(this).closest("tr")
+                        .find(".productdetailid").text();
         $.ajax({
             url: 'pages/update-cart.php',
             type: 'post',
             data: {
-                'updatecart': 1,
+                'productdetailid' : productdetailid,
+                'changequantity': 1,
                 'productid': productid,
                 'quantity': quantity,
                 'cartid': cartid

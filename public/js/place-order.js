@@ -11,9 +11,10 @@ $('document').ready(function() {
             patt = " VND";
             productprice = parseInt(productprice.replace(patt, ""));
             productid = $(this).find(".productid").text();
-
+            productdetailid = $(this).find(".productdetailid").text();
             var obj = {
                 id: productid,
+                productdetailid:productdetailid,
                 quantity: productquantity,
                 price: productprice,
             };

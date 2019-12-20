@@ -133,11 +133,11 @@ include("../config/dbconfig.php");
                      <div>
                      
                      <label for="size">Size</label>
-                     <input type="text" name="size[]" id="size" value="' . $row_product_detail[$count][1] . '" required>
+                     <input type="text" name="size[]" id="size" value="' . $row_product_detail[$count][2] . '" required>
                      <label for="color">Màu</label>
-                     <input type="text" name="color[]" id="color" value="' . $row_product_detail[$count][2] . '"required>
+                     <input type="text" name="color[]" id="color" value="' . $row_product_detail[$count][3] . '"required>
                      <label for="amount">Số lượng</label>
-                     <input type="text" name="amount[]" id="amount" value="' . $row_product_detail[$count][3] . '"required>
+                     <input type="text" name="amount[]" id="amount" value="' . $row_product_detail[$count][4] . '"required>
                      <a href="javascript:void(1);" class="remove_button" title="Remove field"><img src="public/images/icons/remove-icon.png"/></a>
                     
                      </div>

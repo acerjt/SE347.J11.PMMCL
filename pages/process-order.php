@@ -88,7 +88,7 @@
                             }
                             foreach ($_SESSION['confirmorder'] as  $cartkey => $cartitem) {
                                 $cartelement = json_decode($cartitem, true);
-                                array_push($cartprocess, $cartelement);
+                                $cartprocess[$cartkey] = $cartelement;
                             }
 
                             $total = 0;
@@ -126,6 +126,8 @@
                                         </td>
 
                                         <td class="productid" style="display:none;"><?php echo $cartitem['id'] ?></td>
+
+                                        <td class="productdetailid" style="display:none;"><?php echo $cartitem['productdetailid'] ?></td>
 
 
 
@@ -198,9 +200,7 @@
                                     <div class="address">
                                         <input type="text" name="address" placeholder="Address" value="" required>
                                     </div>
-                                    <div class="email">
-                                        <input type="email" name="email" placeholder="Email" value="" required>
-                                    </div>
+                                  
                                     <div class="phone-number">
                                         <input type="number" name="phonenumber" placeholder="Phone Number" value="" required>
                                     </div>
