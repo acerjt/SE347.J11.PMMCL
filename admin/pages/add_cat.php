@@ -5,8 +5,8 @@
 <div id="main-content-wp" class="add-cat-page">
    <div class="section" id="title-page">
       <div class="clearfix">
-         <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a>
-         <h3 id="index" class="fl-left">Thêm mới danh mục</h3>
+         <!-- <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a> -->
+         <h3 id="index" class="fl-left" style="margin-left: 30px">Thêm mới danh mục</h3>
       </div>
    </div>
    <div class="wrap clearfix">

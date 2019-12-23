@@ -96,8 +96,9 @@
                                     </a>
                                 </div>
                                 <div class="actions">
-                                    <button onclick="location.href='?page=add_cart&id=<?php echo $row['id'] ?>'" type="submit" class="cart-btn" title="Add to cart">Buy Now</button>
-                                    <ul class="add-to-link">
+                                <button  value="<?php echo $row['id']; ?>" type="submit" class="cart-btn add-cart1" title="Add to cart">Buy Now</button>
+                                                       
+                                <ul class="add-to-link">
                                         <li><a class="modal-view" data-target="#productModal" data-toggle="modal" href="#"> <i class="fa fa-search"></i></a></li>
                                         <li class="add-wishlist" value="<?php echo $row['id']; ?>"><a><i class="fa fa-heart"></i></a></li>
                                         <li class="add-cart" value="<?php echo $row['id']; ?>"><a> <i class="fa fa-shopping-cart"></i></a></li>
@@ -192,8 +193,9 @@
                                                     <button  value="<?php echo $row['id']; ?>" type="submit" class="cart-btn add-cart1" title="Add to cart">Buy Now</button>
                                                     <ul class="add-to-link">
                                                         <li><a class="modal-view" data-target="#productModal" data-toggle="modal" href="#"> <i class="fa fa-search"></i></a></li>
-                                                        <li><a href="#"> <i class="fa fa-heart-o"></i></a></li>
-                                                        <li><a href="#"> <i class="fa fa-refresh"></i></a></li>
+                                                        <li class="add-wishlist" value="<?php echo $row['id']; ?>"><a><i class="fa fa-heart"></i></a></li>
+                                                        <li class="add-cart" value="<?php echo $row['id']; ?>"><a> <i class="fa fa-shopping-cart"></i></a></li>
+
                                                     </ul>
                                                 </div>
                                                 <div class="product-price">

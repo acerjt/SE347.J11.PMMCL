@@ -1,8 +1,8 @@
 <div id="main-content-wp" class="change-pass-page">
    <div class="section" id="title-page">
       <div class="clearfix">
-         <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a>
-         <h3 id="index" class="fl-left">Cập nhật tài khoản</h3>
+         <!-- <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a> -->
+         <h3 id="index" class="fl-left" style="margin-left: 30px">Cập nhật tài khoản</h3>
       </div>
    </div>
    <div class="wrap clearfix">

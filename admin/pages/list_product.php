@@ -1,8 +1,8 @@
 <div id="main-content-wp" class="list-product-page">
     <div class="section" id="title-page">
         <div class="clearfix">
-            <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a>
-            <h3 id="index" class="fl-left">Danh sách sản phẩm</h3>
+            <!-- <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a> -->
+            <h3 id="index" class="fl-left" style="margin-left: 30px" >Danh sách sản phẩm</h3>
         </div>
     </div>
     <div class="wrap clearfix">
@@ -92,7 +92,7 @@
                                         <td style="width: 7%;">
                                             <ul class="list-operation fl-left">
                                                 <li><a href="?page=change_product&id=<?php echo $row['id']; ?>" title="Sửa" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                                <li><a href="?page=delete_product&id=<?php echo $row['id']; ?>" title="Xóa" class="delete"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+                                                <li><a href="?page=delete_product&id=<?php echo $row['id']; ?>" title="Xóa" class="delete" onclick=" return confirm('Are you sure that you want to delete?')"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </td>
                                         <th scope="row" style="width: 3%;"><?php echo $i; ?></th>

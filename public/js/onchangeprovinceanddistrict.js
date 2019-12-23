@@ -84,7 +84,7 @@ $('document').ready(function() {
             }
 
         }
-        inputProvinceField.placeholder = 'Select state';
+        inputProvinceField.placeholder = 'Select Province';
         dropdownProvince.classList.remove('open');
     });
     document.addEventListener('click', function(evt) {
@@ -188,7 +188,7 @@ $('document').ready(function() {
                         });
                     });
                     inputDistrictFiled.addEventListener('blur', function() {
-                        inputDistrictFiled.placeholder = 'Select state';
+                        inputDistrictFiled.placeholder = 'Select District';
                         dropdownDistrict.classList.remove('open');
                         for (var j = 0; j < valueDArray.length; j++) {
                             if (inputDistrictFiled.value.toLowerCase() === valueDArray[j]['name'].toLowerCase()) {
@@ -277,7 +277,7 @@ $('document').ready(function() {
                                             });
                                         });
                                         inputWardFiled.addEventListener('blur', function() {
-                                            inputWardFiled.placeholder = 'Select state';
+                                            inputWardFiled.placeholder = 'Select Ward';
                                             dropdownWard.classList.remove('open');
                                             outputWardField.value = "";
                                             for (var j = 0; j < valueWArray.length; j++) {
@@ -415,7 +415,7 @@ $('document').ready(function() {
                         });
                     });
                     inputDistrictFiled.addEventListener('blur', function() {
-                        inputDistrictFiled.placeholder = 'Select state';
+                        inputDistrictFiled.placeholder = 'Select District';
                         dropdownDistrict.classList.remove('open');
                         for (var j = 0; j < valueDArray.length; j++) {
                             if (inputDistrictFiled.value.toLowerCase() === valueDArray[j]['name'].toLowerCase()) {
@@ -505,7 +505,7 @@ $('document').ready(function() {
                                             });
                                         });
                                         inputWardFiled.addEventListener('blur', function() {
-                                            inputWardFiled.placeholder = 'Select state';
+                                            inputWardFiled.placeholder = 'Select Ward';
                                             dropdownWard.classList.remove('open');
                                             outputWardField.value = "";
                                             for (var j = 0; j < valueWArray.length; j++) {
@@ -849,7 +849,7 @@ $('document').ready(function() {
             });
         });
         inputDistrictFiled.addEventListener('blur', function() {
-            inputDistrictFiled.placeholder = 'Select state';
+            inputDistrictFiled.placeholder = 'Select District';
             dropdownDistrict.classList.remove('open');
             for (var j = 0; j < valueDArray.length; j++) {
                 if (inputDistrictFiled.value.toLowerCase() === valueDArray[j]['name'].toLowerCase()) {
@@ -979,7 +979,7 @@ $('document').ready(function() {
                                 });
                             });
                             inputWardFiled.addEventListener('blur', function() {
-                                inputWardFiled.placeholder = 'Select state';
+                                inputWardFiled.placeholder = 'Select Ward';
                                 dropdownWard.classList.remove('open');
                                 outputWardField.value = "";
                                 for (var j = 0; j < valueWArray.length; j++) {

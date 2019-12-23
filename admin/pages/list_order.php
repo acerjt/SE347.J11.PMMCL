@@ -1,8 +1,8 @@
 <div id="main-content-wp" class="list-product-page">
     <div class="section" id="title-page">
         <div class="clearfix">
-            <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a>
-            <h3 id="index" class="fl-left">Đơn hàng</h3>
+            <!-- <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a> -->
+            <h3 id="index" class="fl-left" style="margin-left: 30px">Đơn hàng</h3>
         </div>
     </div>
     <div class="wrap clearfix">
@@ -61,10 +61,12 @@
                                 if (isset($_POST['s'])) {
                                     if ($_POST['s'] != '') {
                                         $s = $_POST['s'];
-                                        $sql = "select * from tbl_order where id LIKE '%$s%' or tenkhachhang LIKE '%$s%' order by id desc limit $trang,8";
+                                        $sql = "select tbl_order.id, tbl_order.customerid,tbl_order.amount,tbl_order.status,tbl_order.date,tbl_customer.id AS cusid, tbl_customer.firstname, tbl_customer.lastname from tbl_order, tbl_customer where tbl_order.customerid = tbl_customer.id and (tbl_order.id LIKE '%$s%' or CONCAT(`firstname`, ' ', `lastname`) LIKE '%$s%') ORDER BY `tbl_customer`.`id` ASC limit $trang,8 ";
                                     } else {
                                         $sql = "select * from tbl_order order by id desc limit $trang,8";
                                     }
+                                } else if (isset($_GET['customerid'])) {
+                                    $sql = "select * from tbl_order where customerid = $_GET[customerid] order by id desc limit $trang,8";
                                 } else {
                                     $sql = "select * from tbl_order order by id desc limit $trang,8";
                                 }
@@ -75,37 +77,37 @@
                                     $query = "SELECT * FROM tbl_customer WHERE id = '$row[customerid]'";
                                     $run1 = mysqli_query($conn, $query);
                                     $customer = mysqli_fetch_array($run1);
-                                    ?>
+                                ?>
                                     <tr>
-                                        <td><span class="tbody-text"><?php echo $i +(8* ($stt-1)); ?></span>
+                                        <td><span class="tbody-text"><?php echo $i + (8 * ($stt - 1)); ?></span>
                                         <td><span class="tbody-text"><?php echo $row["id"]; ?></span>
                                         <td><span class="tbody-text"><?php echo $row["date"]; ?></span>
                                         <td>
                                             <div class="tb-title fl-left">
-                                                <a href="?page=detail_order&id=<?php echo $row["id"]; ?>" title=""><?php echo $customer['firstname'] ." ". $customer['lastname']; ?></a>
+                                                <a href="?page=detail_order&id=<?php echo $row["id"]; ?>" title=""><?php echo $customer['firstname'] . " " . $customer['lastname']; ?></a>
                                             </div>
 
                                         </td>
                                         <td><span class="tbody-text"><?php
-                                                                            $maOder = $row['id'];
-                                                                            $sql2 = "select * from tbl_order_detail where orderid = " . $maOder;;
-                                                                            //Bước 2: Hiển thị các dữ liệu trong bảng ra đây
-                                                                            $run2 = mysqli_query($conn, $sql2);
-                                                                            $j = 0;
-                                                                            $tongsl = 0;
-                                                                            while ($row2 = mysqli_fetch_array($run2)) {
-                                                                                $j++;
-                                                                                    $tongsl += $row2['quantity'];
-                                                                            }
-                                                                            echo $tongsl;
-                                                                            ?></span></td>
+                                                                        $maOder = $row['id'];
+                                                                        $sql2 = "select * from tbl_order_detail where orderid = " . $maOder;;
+                                                                        //Bước 2: Hiển thị các dữ liệu trong bảng ra đây
+                                                                        $run2 = mysqli_query($conn, $sql2);
+                                                                        $j = 0;
+                                                                        $tongsl = 0;
+                                                                        while ($row2 = mysqli_fetch_array($run2)) {
+                                                                            $j++;
+                                                                            $tongsl += $row2['quantity'];
+                                                                        }
+                                                                        echo $tongsl;
+                                                                        ?></span></td>
                                         <td><span class="tbody-text"><?php echo number_format($row["amount"]); ?></span></td>
                                         <td><span class="tbody-text"><?php echo $row['status']; ?></span></td>
                                         <td><a href="?page=detail_order&id=<?php echo $row['id']; ?>" title="" class="tbody-text">Chi tiết</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
-                            
+
                         </table>
                     </div>
                 </div>
@@ -115,7 +117,12 @@
                 <div class="section-detail clearfix">
                     <ul id="list-paging" class="fl-right">
                         <li>
-                            <a href="" title="">
+                            <a href="?page=list_order&trang=<?php
+                                                            if ($stt > 1)
+                                                                echo ($stt - 1);
+                                                            else
+                                                                echo ($stt);
+                                                            ?>" title="">
                                 <</a> </li> <?php
                                             $sql_trang = "select * from tbl_order";
                                             $run_trang = mysqli_query($conn, $sql_trang);
@@ -130,7 +137,12 @@
                                                 echo '<li><a href="?page=list_order&trang=' . $b . '" style="text-decoration:none">' . ' ' . $b . ' ' . '</a></li>';
                                             }
                                             ?> <li>
-                                    <a href="" title="">></a>
+                                    <a href="?page=list_order&trang=<?php
+                                                                    if ($stt > 0 && $_GET['trang'] < $sotrang)
+                                                                        echo ($stt + 1);
+                                                                    else
+                                                                        echo ($stt['trang']);
+                                                                    ?>" title="">></a>
                         </li>
                     </ul>
                 </div>

@@ -34,8 +34,9 @@ include('pages/function.php');
     <link rel="stylesheet" href="public/css/meanmenu.min.css">
     <!-- nivoslider CSS
         ============================================ -->
-    <link rel="stylesheet" href="public/lib/css/nivo-slider.css">
+    <link rel="stylesheet" href="theme/lib/css/nivo-slider.css">
     <link rel="stylesheet" href="public/lib/css/preview.css">
+
     <!-- animate CSS
         ============================================ -->
     <link rel="stylesheet" href="public/css/animate.css">
@@ -490,3 +491,4 @@ include('pages/function.php');
 </body>
 
 <script src="public/js/remove-cart.js"></script>
+<script src="theme/lib/js/jquery.nivo.slider.js"></script>  

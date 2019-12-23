@@ -84,6 +84,14 @@
                 <div class="row">
                     <div class="col-sm-12">
                       
+                 <?php 
+                  $query = "SELECT *FROM tbl_wishlist where customerid = '$_SESSION[customerid]'";
+                  $results = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($results) == 0){
+                        echo '<div style="height: 500px"><h3 style="text-align:center">Wishlist is empty</h3></div>';
+                    }
+                    else{
+                 ?>
                  
                         <div class="wishlist-content">
                                         <div class="table-responsive">
@@ -102,9 +110,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <?php
-                                                        $query = "SELECT *FROM tbl_wishlist where customerid = '$_SESSION[customerid]'";
-                                                        $results = mysqli_query($conn, $query);
-
+                                                       
                                                         while ($row = mysqli_fetch_array($results)) {
                                                             $query = "SELECT *FROM tbl_product where id = '$row[productid]'";
                                                             $run = mysqli_query($conn,$query);
@@ -131,7 +137,7 @@
                                                             <td class="unit-price"><?php echo $product['price'];?></td>
                                                             <td>
                                                                 <div class="wishlist-actions">
-                                                                    <button type="button" data-toggle="tooltip" title="Add to Cart"> <i class="fa fa-shopping-cart"></i> </button>
+                                                                    <button class="add-cart" value="<?php echo $product['id']; ?>" type="button" data-toggle="tooltip" title="Add to Cart"> <i class="fa fa-shopping-cart"></i> </button>
                                                                     <button type="button" class="remove-wishlist" value="<?php echo $product['id'];?>" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
                                                                 </div>
                                                             </td>
@@ -142,6 +148,7 @@
                                         </div>
                             <!-- <button type="submit" value="Continue" class="check-button">Continue</button> -->
                         </div>
+                                                        <?php }?>
                     </div>
                 </div>
             </div>
@@ -190,6 +197,7 @@
 
 
         <script src="public/js/remove-wishlist.js"></script>
+        <script src="public/js/add-cart.js"></script>
     </body>
 
 </html>

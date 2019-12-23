@@ -117,7 +117,7 @@
                                     </div>
                                     <div>
 
-                                        <input class="province-group chosen-value" type="text" value="" placeholder="Type to filter">
+                                        <input class="province-group chosen-value" type="text" value="" placeholder="Select Province">
                                         <ul class="value-list province-ul" required>
 
                                             <?php
@@ -138,7 +138,7 @@
                                     <div>
 
                                         <div class="clear"></div>
-                                        <input class="district-group chosen-value" type="text" value="" placeholder="Type to filter">
+                                        <input class="district-group chosen-value" type="text" value="" placeholder="Select District">
                                         <ul class="value-list district-ul" required>
 
                                         </ul>
@@ -148,7 +148,7 @@
                                     <div>
 
                                         <div class="clear"></div>
-                                        <input class="ward-group chosen-value" type="text" value="" placeholder="Type to filter">
+                                        <input class="ward-group chosen-value" type="text" value="" placeholder="Select Ward">
                                         <ul class="value-list ward-ul" required>
 
                                         </ul>

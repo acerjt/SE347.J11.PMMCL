@@ -82,8 +82,8 @@ include("../config/dbconfig.php");
 <div id="main-content-wp" class="add-cat-page">
    <div class="section" id="title-page">
       <div class="clearfix">
-         <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a>
-         <h3 id="index" class="fl-left">Sửa sản phẩm</h3>
+         <!-- <a href="?page=add_product" title="" id="add-new" clastyle="margin-left: 30px"s="fl-left">Thêm mới</a> -->
+         <h3 id="index" class="fl-left" style="margin-left: 30px">Sửa sản phẩm</h3>
       </div>
    </div>
    <div class="wrap clearfix">

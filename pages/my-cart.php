@@ -308,9 +308,13 @@
                                 } ?>
                             </table>
                         </form>
+                        <?php 
+                        if($cartnum)
+                               {
+                        ?>
                         <div class="shopping-button">
                             <div class="continue-shopping">
-                                <button type="submit">continue shopping</button>
+                                <a href="?page=home"><button type="submit">continue shopping</button></a>
                             </div>
                             <div class="shopping-cart-left">
                                 <button class="clear-cart">Clear Shopping Cart</button>
@@ -351,9 +355,15 @@
                             <!-- <a href="#">Checkout with Multiple Addresses</a> -->
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
+              
 
             </div>
+            <?php 
+                if(!$cartnum)
+                    echo'<div style="height:500px"><h3 style="text-align: center">Cart is empty</h3></div>'
+                ?>
             <div class="row">
                 <!-- <div class="col-sm-4">
                     <div class="discount-code">

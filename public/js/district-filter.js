@@ -71,7 +71,7 @@ $('document').ready(function() {
             });
         });
         inputDistrictFiled.addEventListener('blur', function() {
-            inputDistrictFiled.placeholder = 'Select state';
+            inputDistrictFiled.placeholder = 'Select District';
             dropdownDistrict.classList.remove('open');
             for (var j = 0; j < valueDArray.length; j++) {
                 if (inputDistrictFiled.value.toLowerCase() === valueDArray[j]['name'].toLowerCase()) {

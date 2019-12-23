@@ -1,21 +1,12 @@
 <div id="main-content-wp" class="list-cat-page">
     <div class="section" id="title-page">
         <div class="clearfix">
-            <a href="?page=add_cat" title="" id="add-new" class="fl-left">Thêm mới</a>
-            <h3 id="index" class="fl-left">Danh sách danh mục</h3>
+            <!-- <a href="?page=add_cat" title="" id="add-new" class="fl-left">Thêm mới</a> -->
+            <h3 id="index" class="fl-left" style="margin-left: 30px">Danh sách danh mục</h3>
         </div>
     </div>
     <div class="wrap clearfix">
-        <div id="sidebar" class="fl-left">
-            <ul id="list-cat">
-                <li>
-                    <a href="?page=list_post" title="">Danh sách bài viết</a>
-                </li>
-                <li>
-                    <a href="?page=list_cat" title="">Danh mục bài viết</a>
-                </li>
-            </ul>
-        </div>
+    <?php require 'inc/sidebar.php'; ?>
         <div id="content" class="fl-right">                       
             <div class="section" id="detail-page">
                 <div class="section-detail">
@@ -75,7 +66,7 @@
                                             </div> 
                                             <ul class="list-operation fl-right">
                                                 <li><a href="?page=change_cat&id=<?php echo $row['id'];?>" title="Sửa" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                                <li><a href="?page=delete_cat&id=<?php echo $row['id'];?>" title="Xóa" class="delete"  onclick="return confirm('Are you sure?')"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+                                                <li><a href="?page=delete_cat&id=<?php echo $row['id'];?>" title="Xóa" class="delete"  onclick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </td>
                                         <td><span class="tbody-text"><?php echo $row["content"];?></span></td>
