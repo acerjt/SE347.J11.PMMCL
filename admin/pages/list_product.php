@@ -41,9 +41,12 @@
                     }
                     if ($get_trang == '' || $get_trang == 1) {
                         $trang = 0;
+                        $stt = 1;
                     } else {
                         $trang = ($get_trang * 8) - 8;
+                        $stt = $get_trang;
                     }
+
 
                     ?>
                     <div class="table-responsive">
@@ -149,18 +152,7 @@
 
 
                             </tbody>
-                            <thead>
-                                <tr>
-                                    <td></td>
-                                    <td><span class="thead-text">STT</span></td>
-                                    <td><span class="thead-text">ID</span></td>
-                                    <td><span class="thead-text">Mã sản phẩm</span></td>
-                                    <td><span class="thead-text">Hình ảnh</span></td>
-                                    <td><span class="thead-text">Tên sản phẩm</span></td>
-                                    <td><span class="thead-text">Giá</span></td>
-                                    <td><span class="thead-text">Danh mục</span></td>
-                                </tr>
-                            </thead>
+                           
                         </table>
 
                     </div>
@@ -170,9 +162,14 @@
                 <div class="section-detail clearfix">
                     <ul id="list-paging" class="fl-right">
                         <li>
-                            <a href="" title="">
+                            <a href="?page=list_product&trang=<?php
+                                                            if ($stt > 1)
+                                                                echo ($stt - 1);
+                                                            else
+                                                                echo ($stt);
+                                                            ?>" title="">
                                 <</a> </li> <?php
-                                            $sql_trang = "select * from tbl_product order by amount asc";
+                                            $sql_trang = "select tbl_product.id,sum(tbl_product_detail.amount) as amount  from tbl_product,tbl_product_detail WHERE tbl_product_detail.product_id=tbl_product.id GROUP BY tbl_product.id order by amount DESC";
                                             $run_trang = mysqli_query($conn, $sql_trang);
                                             $sosanpham = mysqli_num_rows($run_trang);
                                             $sotrang = ceil($sosanpham / 8);
@@ -185,7 +182,12 @@
                                                 echo '<li><a href="?page=list_product&trang=' . $b . '" style="text-decoration:none">' . ' ' . $b . ' ' . '</a></li>';
                                             }
                                             ?> <li>
-                                    <a href="" title="">></a>
+                                    <a href="?page=list_product&trang=<?php
+                                                                    if ($stt > 0 && $_GET['trang'] < $sotrang)
+                                                                        echo ($stt + 1);
+                                                                    else
+                                                                        echo ($stt['trang']);
+                                                                    ?>" title="">></a>
                         </li>
                     </ul>
                 </div>

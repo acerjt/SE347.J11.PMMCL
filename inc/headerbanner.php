@@ -47,7 +47,7 @@
         <link rel="stylesheet" href="theme/css/main.css">
         <!-- style CSS
         ============================================ -->
-        <link rel="stylesheet" href="theme/style.css">
+        <link rel="stylesheet" href="public/style.css">
         <!-- responsive CSS
         ============================================ -->
         <link rel="stylesheet" href="theme/css/responsive.css">

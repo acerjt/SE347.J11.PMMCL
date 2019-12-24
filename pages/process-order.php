@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- style CSS
         ============================================ -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- responsive CSS
         ============================================ -->
     <link rel="stylesheet" href="css/responsive.css">
@@ -114,7 +114,7 @@
 
 
                                         <td class="table-item-price">
-                                            <div class="cart-item-align cart-item-price"><?php echo $cartitem['price'] ?> VND</div>
+                                            <div class="cart-item-align cart-item-price"><?php echo adddotstring( $cartitem['price']) ?> VND</div>
                                             <div class="cart-actions">
                                                 <button type="button" class="remove-confirm-item" value="<?php echo $cartkey; ?>" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
                                             </div>

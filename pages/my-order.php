@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- style CSS
         ============================================ -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- responsive CSS
         ============================================ -->
     <link rel="stylesheet" href="css/responsive.css">
@@ -108,6 +108,7 @@
                                         <th>Order Date</th>
                                         <th>Amount</th>
                                         <th>Total</th>
+                                        <th>Shipping Fee</th>
                                         <th>Status</th>
                                         <th>Detail</th>
                                     </tr>
@@ -122,7 +123,7 @@
                                             // $query = "SELECT *FROM tbl_product where id = '$row[productid]'";
                                             // $run = mysqli_query($conn,$query);
                                             // $product = mysqli_fetch_array($run);
-                                            ?>
+                                        ?>
 
                                             <td><?php echo $row['id']; ?></td>
                                             <td>
@@ -130,18 +131,18 @@
                                             </td>
                                             <td>
                                                 <?php
-                                                    $maOder = $row['id'];
-                                                    $sql2 = "select * from tbl_order_detail where orderid = " . $maOder;;
-                                                    //Bước 2: Hiển thị các dữ liệu trong bảng ra đây
-                                                    $run2 = mysqli_query($conn, $sql2);
-                                                    $j = 0;
-                                                    $tongsl = 0;
-                                                    while ($row2 = mysqli_fetch_array($run2)) {
-                                                        $j++;
-                                                        $tongsl += $row2['quantity'];
-                                                    }
-                                                    echo $tongsl;
-                                                    ?>
+                                                $maOder = $row['id'];
+                                                $sql2 = "select * from tbl_order_detail where orderid = " . $maOder;;
+                                                //Bước 2: Hiển thị các dữ liệu trong bảng ra đây
+                                                $run2 = mysqli_query($conn, $sql2);
+                                                $j = 0;
+                                                $tongsl = 0;
+                                                while ($row2 = mysqli_fetch_array($run2)) {
+                                                    $j++;
+                                                    $tongsl += $row2['quantity'];
+                                                }
+                                                echo $tongsl;
+                                                ?>
                                             </td>
                                             <td>
 
@@ -150,10 +151,16 @@
 
                                             </td>
                                             <td>
+
+
+                                                <?php echo number_format($row['shipping_fee']); ?>
+
+                                            </td>
+                                            <td>
                                                 <?php
-                                                    echo $row['status'];
-                                                    if ($row['status'] == 'Chờ duyệt') {
-                                                        ?>
+                                                echo $row['status'];
+                                                if ($row['status'] == 'Chờ duyệt') {
+                                                ?>
                                                     <button style="margin-left: 16px" type="button" class="cancel-btn" value="<?php echo $row['id']; ?>" data-toggle="tooltip" title="" data-original-title="Cancel"> <i class="fa fa-times"></i> </button>
                                                 <?php } ?>
                                             </td>

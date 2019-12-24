@@ -67,5 +67,16 @@
                 </li>
             </ul>
         </li>
+        <li class="nav-item">
+            <a href="" title="" class="nav-link nav-toggle">
+                <span class="fa fa-phone icon"></span>
+                <span class="title">Contact</span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item">
+                    <a href="?page=list_contact" title="" class="nav-link">Danh sách liên hệ</a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </div>

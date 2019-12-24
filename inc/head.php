@@ -50,7 +50,7 @@ include('pages/function.php');
     <link rel="stylesheet" href="public/css/main.css">
     <!-- style CSS
         ============================================ -->
-    <link rel="stylesheet" href="public/style.css">
+    <!-- <link rel="stylesheet" href="public/style.css"> -->
     <!-- responsive CSS
         ============================================ -->
     <link rel="stylesheet" href="public/css/responsive.css">

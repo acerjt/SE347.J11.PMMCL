@@ -50,6 +50,7 @@
                                     <td><span class="thead-text">Họ và tên</span></td>
                                     <td><span class="thead-text">Số sản phẩm</span></td>
                                     <td><span class="thead-text">Tổng giá</span></td>
+                                    <td><span class="thead-text">Phí vận chuyển</span></td>
                                     <td><span class="thead-text">Trạng thái</span></td>
                                     <td><span class="thead-text">Chi tiết</span></td>
                                 </tr>
@@ -84,7 +85,7 @@
                                         <td><span class="tbody-text"><?php echo $row["date"]; ?></span>
                                         <td>
                                             <div class="tb-title fl-left">
-                                                <a href="?page=detail_order&id=<?php echo $row["id"]; ?>" title=""><?php echo $customer['firstname'] . " " . $customer['lastname']; ?></a>
+                                                <a href="?page=list_customer&id=<?php echo $row["customerid"]; ?>" title=""><?php echo $customer['firstname'] . " " . $customer['lastname']; ?></a>
                                             </div>
 
                                         </td>
@@ -102,6 +103,7 @@
                                                                         echo $tongsl;
                                                                         ?></span></td>
                                         <td><span class="tbody-text"><?php echo number_format($row["amount"]); ?></span></td>
+                                        <td><span class="tbody-text"><?php echo number_format($row["shipping_fee"]); ?></span></td>
                                         <td><span class="tbody-text"><?php echo $row['status']; ?></span></td>
                                         <td><a href="?page=detail_order&id=<?php echo $row['id']; ?>" title="" class="tbody-text">Chi tiết</a></td>
                                     </tr>

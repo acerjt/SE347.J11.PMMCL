@@ -119,7 +119,7 @@ include('pages/function.php');
                                             if (!$_SESSION['username']) {
                                                 echo '<ul>
                                                 <li><a href="?page=my-cart">My cart</a></li>
-                                                <li><a href="#">Checkout</a></li>
+                                                
                                                 <li><a href="?page=register">Register</a></li>
                                                 <li><a href="?page=login">Login</a></li>
                                             </ul>';
@@ -128,7 +128,7 @@ include('pages/function.php');
                                                 <li><a href="?page=my-account">My account</a></li>
                                                 <li><a href="?page=wishlist">My wishlist</a></li>
                                                 <li><a href="?page=my-cart">My cart</a></li>
-                                                <li><a href="#">Checkout</a></li>
+                                                
                                                 <li><a href="?page=my-order">My Order</a></li>
                                                 <li><a href="?page=logout">Logout</a></li>
                                             </ul>';

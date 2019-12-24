@@ -27,12 +27,14 @@ $('document').ready(function() {
             $('#place-order').append(input);
            
         });
+
         var input = $("<input />", {
             name: "placeorder",
             value: 1,
             type: "hidden"
         });
         $('#place-order').append(input);
+
         var total = $('.cart-total').text();
         var patt = /\./g;
         total = total.replace(patt, "");
@@ -41,6 +43,18 @@ $('document').ready(function() {
         var input = $("<input />", {
             name: "amount",
             value: total,
+            type: "hidden"
+        });
+        $('#place-order').append(input);
+
+        var shippingfee = $('.cart-shipping-fee').text();
+        var patt = /\./g;
+        shippingfee = shippingfee.replace(patt, "");
+        patt = " VND";
+        shippingfee = parseInt(shippingfee.replace(patt, ""));
+        var input = $("<input />", {
+            name: "shippingfee",
+            value: shippingfee,
             type: "hidden"
         });
         $('#place-order').append(input);

@@ -23,7 +23,7 @@ if (isset($_POST['email_check'])) {
     exit();
 }
 if (isset($_POST['getdistrict'])) {
-    $provinceid = "0".$_POST['provinceid'];   // department id
+    $provinceid = $_POST['provinceid'];   // department id
 
     $sql = "SELECT maqh,name FROM devvn_quanhuyen WHERE matp= " . $provinceid;
 
@@ -44,7 +44,7 @@ if (isset($_POST['getdistrict'])) {
     exit();
 }
 if (isset($_POST['getward'])) {
-    $districtid = "0".$_POST['districtid'];   // department id
+    $districtid = $_POST['districtid'];   // department id
 
     $sql = "SELECT xaid,name FROM devvn_xaphuongthitran WHERE maqh= " . $districtid;
 
@@ -71,9 +71,13 @@ if (isset($_POST['save'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $phonenumber = "0".$_POST['phonenumber'];
-    $province = "0".$_POST['province'];
-    $district = "0".$_POST['district'];
-    $ward = "0".$_POST['ward'];
+    $province = $_POST['province'];
+    $district = $_POST['district'];
+    $ward = $_POST['ward'];
+    $p = $_POST['p'];
+    $d = $_POST['d'];
+    $w = $_POST['w'];
+    $address = $w . " " . $d . " " . $p;
     $sql = "SELECT * FROM tbl_customer WHERE username='$username'";
     $results = mysqli_query($conn, $sql);
 
@@ -89,8 +93,8 @@ if (isset($_POST['save'])) {
         $currentcustomerid = mysqli_fetch_array($getcurrentcustomerid);
         $currentcustomerid = $currentcustomerid['AUTO_INCREMENT'];
 
-        $query = "INSERT INTO tbl_customer (username, password, firstname, lastname, email, phone_number ) 
-  	       	VALUES ('$username', '" . md5($password) . "','$firstname', '$lastname', '$email', '$phonenumber')";
+        $query = "INSERT INTO tbl_customer (username, password, firstname, lastname, email, phone_number,address ) 
+  	       	VALUES ('$username', '" . md5($password) . "','$firstname', '$lastname', '$email', '$phonenumber','$address')";
         $results = mysqli_query($conn, $query);
 
         if ($results) {

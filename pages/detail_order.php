@@ -374,7 +374,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td style="text-align: left">Phí ship</td>
-                                                <td style="text-align: right"><?php echo number_format($row['shippingfee']); ?> VNĐ</td>
+                                                <td style="text-align: right"><?php echo number_format($row['shipping_fee']); ?> VNĐ</td>
                                             </tbody>
                                             <tbody>
                                                 <td></td>
@@ -384,7 +384,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td style="text-align: left;color: #F25862">Tổng đơn hàng</td>
-                                                <td style="text-align: right;color: #F25862"><?php echo number_format($row['amount']); ?> VNĐ</td>
+                                                <td style="text-align: right;color: #F25862"><?php echo number_format($row['amount']+$row['shipping_fee']); ?> VNĐ</td>
                                             </tbody>
                                         </table>
                                     </div>

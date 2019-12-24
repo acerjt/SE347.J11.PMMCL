@@ -53,7 +53,7 @@
         <link rel="stylesheet" href="css/main.css">
         <!-- style CSS
         ============================================ -->
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
         <!-- responsive CSS
         ============================================ -->
         <link rel="stylesheet" href="css/responsive.css">
@@ -70,64 +70,14 @@
                     <div class="col-md-12">
                         <div class="location">
                             <ul>
-                                <li><a href="index.html" title="go to homepage">Home<span>/</span></a>  </li>
+                                <li><a href="?page=home" title="go to homepage">Home<span>/</span></a>  </li>
                                 <li><strong> contact</strong></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-3">
-                        <div class="product-sidebar">
-                            <div class="sidebar-title">
-                                <h2>Shopping Options</h2>
-                            </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Category</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Dresses (4)</a></li>
-                                        <li><a href="#">shoes (6)</a></li>
-                                        <li><a href="#">Handbags (1)</a></li>
-                                        <li><a href="#">Clothing (3)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Color</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Black (2)</a></li>
-                                        <li><a href="#">Blue (2)</a></li>
-                                        <li><a href="#">Green (4)</a></li>
-                                        <li><a href="#">Grey (2)</a></li>
-                                        <li><a href="#">Red (2)</a></li>
-                                        <li><a href="#">White (2)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Manufacturer</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Calvin Klein (2)</a></li>
-                                        <li><a href="#">Diesel (2)</a></li>
-                                        <li><a href="#">option value (1)</a></li>
-                                        <li><a href="#">Polo (2)</a></li>
-                                        <li><a href="#">store view (4)</a></li>
-                                        <li><a href="#">Tommy Hilfiger (2)</a></li>
-                                        <li><a href="#">will be used (1)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 
                     <div class="col-sm-9">
                         <div class="contact-info">
                             <div id="googleMap"></div>
@@ -139,20 +89,20 @@
                                     <div class="form-title">
                                         <h4>contact information</h4>
                                     </div>
-                                    <form class="form-content" action="#" name="form1" >
+                                    <form class="form-content" method="post" action="pages/contact_perform.php" name="form1" >
                                         <ul>
                                             <li>
                                                 <div class="form-box">
                                                     <div class="form-name">
                                                         <label>Name <em>*</em> </label>
-                                                        <input id="name" type="text" name="text1" >
+                                                        <input id="name" type="text" name="name"  required>
                                                        
                                                     </div>
                                                 </div>
                                                 <div class="form-box">
                                                     <div class="form-name">
                                                         <label>Email <em>*</em> </label>
-                                                        <input type="email" name="email" >
+                                                        <input type="email" name="email"  required>
                                                     </div>
                                                 </div>
                                             </li>
@@ -160,7 +110,13 @@
                                                 <div class="form-box">
                                                     <div class="form-name">
                                                         <label>Phone number  <em>*</em></label>
-                                                        <input type="text" maxlength="10" >
+                                                        <input type="text" maxlength="10" name="phone_number" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-box">
+                                                    <div class="form-name">
+                                                        <label>Subject  <em>*</em></label>
+                                                        <input type="text"  name="subject" required>
                                                     </div>
                                                 </div>
                                             </li>
@@ -168,14 +124,16 @@
                                                 <div class="form-box">
                                                     <div class="form-name">
                                                         <label>Comment <em>*</em> </label>
-                                                        <textarea cols="5" rows="3" ></textarea>
+                                                        <textarea cols="5" rows="3" name="content" required ></textarea>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
+                                        <input type="hidden" value="1" name="contact">
                                         <div class="buttons-set">
                                     <p> <em>*</em> Required Fields</p>
-                                    <button onclick="myFunction()" type="submit" >submit</button>
+                                  
+                                    <button type="submit"  >submit</button>
                                 </div>
                                     </form>
                                 </div>
@@ -245,11 +203,15 @@
 
             }
             function myFunction() {
-                var empt = document.forms["form1"]["text1"].value;
-                if (empt == "")
+                var name = document.forms["form1"]["name"].value;
+                var email = document.forms["form1"]["email"].value;
+                var phone_number = document.forms["form1"]["phone_number"].value;
+                var comment = document.forms["form1"]["comment"].value;
+                if (name == "" ||email == "" ||phone_number == "" ||comment == "" )
                 {
-                    alert("Please input a Value");
+                    alert("Please fill out the blank fill");
                    // document.forms["form1"]["text1"].style.border: "solid 1px #8AAFE1";
+                   return false;
                 }
                 else 
                 {

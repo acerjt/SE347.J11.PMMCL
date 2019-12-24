@@ -2,7 +2,7 @@
     <div class="section" id="title-page">
         <div class="clearfix">
             <!-- <a href="?page=add_product" title="" id="add-new" class="fl-left">Thêm mới</a> -->
-            <h3 id="index" class="fl-left" style="margin-left: 30px">Danh sách khách hàng</h3>
+            <h3 id="index" class="fl-left" style="margin-left: 30px">Danh sách liên hệ</h3>
         </div>
     </div>
     <div class="wrap clearfix">
@@ -37,13 +37,13 @@
                             <thead>
                                 <tr>
                                     <td><span class="thead-text">STT</span></td>
-                                    <td><span class="thead-text">ID</span></td>
+                                    <!-- <td><span class="thead-text">ID</span></td> -->
                                     <td><span class="thead-text">Họ và tên</span></td>
                                     <td><span class="thead-text">Email</span></td>
                                     <td><span class="thead-text">Số điện thoại</span></td>
-                                    <td><span class="thead-text">Địa chỉ</span></td>
-                                    <td><span class="thead-text">Doanh số</span></td>
-                                    <td><span class="thead-text">Chi tiết</span></td>
+                                    <td><span class="thead-text">Chủ đề</span></td>
+                                    <td><span class="thead-text">Nội dung</span></td>
+                                    <td><span class="thead-text">Ngày gửi</span></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,24 +53,15 @@
                                 if (isset($_POST['s'])) {
                                     if ($_POST['s'] != '') {
                                         $s = $_POST['s'];
-                                        $sql = "SELECT *,(select COALESCE(sum(amount),0)FROM tbl_order WHERE tbl_customer.id = tbl_order.customerid AND tbl_order.status = 'Đã giao') totalamount FROM `tbl_customer` where id LIKE '%$s%' or CONCAT(`firstname`, ' ', `lastname`) LIKE '%$s%'  order by totalamount desc limit $trang,8";
+                                        $sql = "SELECT * from tbl_contact where name LIKE '%$s%' or content LIKE '%$s%' LIMIT $trang,8";
                                     } 
                                    
                                     else {
-                                        $sql = "SELECT *,(select COALESCE(sum(amount),0)FROM tbl_order WHERE tbl_customer.id = tbl_order.customerid AND tbl_order.status = 'Đã giao') totalamount FROM `tbl_customer` order by totalamount desc limit $trang,8";
-                                    }
-                                } else if(isset($_GET['id'])){
-                                    if ($_GET['id'] != '') {
-                                        $sql = "SELECT *,(select COALESCE(sum(amount),0)FROM tbl_order WHERE  tbl_customer.id = tbl_order.customerid AND tbl_order.status = 'Đã giao') totalamount FROM `tbl_customer` where tbl_customer.id ='$_GET[id]'  order by totalamount desc limit $trang,8";
-                                    } 
-                                   
-                                    else {
-                                        $sql = "SELECT *,(select COALESCE(sum(amount),0)FROM tbl_order WHERE tbl_customer.id = tbl_order.customerid AND tbl_order.status = 'Đã giao') totalamount FROM `tbl_customer` order by totalamount desc limit $trang,8";
-                                    
+                                        $sql = "SELECT * from tbl_contact where name LIKE '%$s%' or content LIKE '%$s%' LIMIT $trang,8";
                                     }
                                 } 
                                 else {
-                                    $sql = "SELECT *,(select COALESCE(sum(amount),0) FROM tbl_order WHERE tbl_customer.id = tbl_order.customerid AND tbl_order.status = 'Đã giao') totalamount FROM `tbl_customer`  order by totalamount desc limit $trang,8";
+                                    $sql = "SELECT * from tbl_contact LIMIT $trang,8";
                                 }
                                 $run = mysqli_query($conn, $sql);
                                 $i = 0;
@@ -82,19 +73,18 @@
                                     ?>
                                     <tr>
                                         <td><span class="tbody-text"><?php echo $i +(8* ($stt-1)); ?></span></td>
-                                        <td><span class="tbody-text"><?php echo $row["id"]; ?></span></td>
-                                        <td><span class="tbody-text"><?php echo $row["firstname"] ." " . $row['lastname']; ?></span></td>
+                                        <td><span class="tbody-text"><?php echo $row["name"]; ?></span></td>
+                                        <td><span class="tbody-text"><?php echo $row["email"] ; ?></span></td>
                                         <td>
                                             <!-- <div class="tb-title fl-left">
-                                                <a href="?page=detail_order&id=<?php echo $row["id"]; ?>" title=""><?php echo $customer['firstname'] ." ". $customer['lastname']; ?></a>
+                                                <a href="?page=detail_order&id=<?php echo $row["phone_number"]; ?>" title=""><?php echo $customer['firstname'] ." ". $customer['lastname']; ?></a>
                                             </div> -->
-                                            <span class="tbody-text"><?php echo $row["email"]; ?></span>
+                                            <span class="tbody-text"><?php echo $row["subject"]; ?></span>
                                         </td>
-                                        <td><span class="tbody-text"><?php echo $row["phone_number"]; ?></span></td>
-                                        <td><span class="tbody-text"><?php echo $row["address"]; ?></span></td>
-                                        <td><span class="tbody-text"><?php echo number_format( $row['totalamount']); ?></span></td>
-                                        <td><a href="?page=list_order&customerid=<?php echo $row['id']; ?>" title="" class="tbody-text">Chi tiết</a></td>
-                                    </tr>
+                                        <td><span class="tbody-text"><?php echo $row["content"]; ?></span></td>
+
+                                        <td><span class="tbody-text"><?php echo $row["date"]; ?></span></td>
+                                       </tr>
                                 <?php } ?>
                             </tbody>
                             
@@ -114,7 +104,7 @@
                                                                 echo ($stt);
                                                             ?>" title="">
                                 <</a> </li> <?php
-                                            $sql_trang = "select * from tbl_customer";
+                                            $sql_trang = "select * from tbl_contact";
                                             $run_trang = mysqli_query($conn, $sql_trang);
                                             $sosanpham = mysqli_num_rows($run_trang);
                                             $sotrang = ceil($sosanpham / 8);
@@ -124,10 +114,10 @@
                                                 echo ' ';
                                             }
                                             for ($b = 1; $b <= $sotrang; $b++) {
-                                                echo '<li><a href="?page=list_customer&trang=' . $b . '" style="text-decoration:none">' . ' ' . $b . ' ' . '</a></li>';
+                                                echo '<li><a href="?page=list_contact&trang=' . $b . '" style="text-decoration:none">' . ' ' . $b . ' ' . '</a></li>';
                                             }
                                             ?> <li>
-                                    <a href="?page=list_customer&trang=<?php
+                                    <a href="?page=list_contact&trang=<?php
                                                                     if ($stt > 0 && $_GET['trang'] < $sotrang)
                                                                         echo ($stt + 1);
                                                                     else

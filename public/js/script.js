@@ -66,6 +66,9 @@ $('document').ready(function() {
         var province = $('.province-value').val();
         var district = $('.district-value').val();
         var ward = $('.ward-value').val();
+        var p = $('.province-group').val();
+        var d = $('.district-group').val();
+        var w = $('.ward-group').val();
         if (username == '' ||
             email == '' ||
             password == '' ||
@@ -106,10 +109,13 @@ $('document').ready(function() {
                     'province': province,
                     'district': district,
                     'ward': ward,
+                    'p':p,
+                    'd':d,
+                    'w':w,
                 },
                 success: function(response) {
                     if (response == 'Fail!')
-                        alert('Dang ki khong thanh cong')
+                        alert('Đăng kí không thành công')
                     else {
                         $.ajax({
                             url: 'pages/login_perform.php',

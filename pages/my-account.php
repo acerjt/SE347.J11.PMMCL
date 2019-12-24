@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- style CSS
         ============================================ -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- responsive CSS
         ============================================ -->
     <link rel="stylesheet" href="css/responsive.css">
@@ -94,7 +94,7 @@
                 <div class="col-md-12">
                     <div class="location">
                         <ul>
-                            <li><a href="index.html" title="go to homepage">Home<span>/</span></a> </li>
+                            <li><a href="?page=home" title="go to homepage">Home<span>/</span></a> </li>
                             <li><strong> my account</strong></li>
                         </ul>
                     </div>
@@ -139,113 +139,17 @@
                 <div class="col-sm-9">
                     <div class="my-account-accordion">
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <i class="fa fa-list-ol"></i>
-                                            Order history and details
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="account-title">
-                                                    <h4>Here are the orders you've placed since your account was created.</h4>
-                                                </div>
-                                                <div class="order-history">
-                                                    <p>You have not placed any orders.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <i class="fa fa-file-o"></i>
-                                            My credit slips
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="account-title">
-                                                    <h4>Credit slips you have received after canceled orders. </h4>
-                                                </div>
-                                                <div class="credit-slids">
-                                                    <p>You have not received any credit slips.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingThree">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            <i class="fa fa-building-o"></i>
-                                            My addresses
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="my-address">
-                                                    <p>Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.</p>
-                                                    <div class="account-title">
-                                                        <h4>Your addresses are listed below. </h4>
-                                                    </div>
-                                                    <p>Be sure to update your personal information if it has changed.</p>
-                                                    <div class="row">
-                                                        <div class="col-md-6 col-sm-12">
-                                                            <div class="account-address">
-                                                                <ul>
-                                                                    <li class="address-menu-title">My address</li>
-                                                                    <li>Hridoy roy</li>
-                                                                    <li>Expert</li>
-                                                                    <li>Bristol</li>
-                                                                    <li>Manchester1</li>
-                                                                    <li>Bristol</li>
-                                                                    <li>United Kingdom</li>
-                                                                    <li>2334234</li>
-                                                                    <li>454565768678</li>
-                                                                    <li>
-                                                                        <button> update </button>
-                                                                        <button> submit </button>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="add-address">
-                                                        <button>add new address</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                         
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingFour">
                                     <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <!-- <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> -->
                                             <i class="fa fa-user"></i>
                                             My personal information
-                                        </a>
+                                        <!-- </a> -->
                                     </h4>
                                 </div>
-                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div >
                                     <div id="tabs">
                                         <ul>
                                             <li><a href="#fragment-1"><span>My Profile</span></a></li>
@@ -333,11 +237,11 @@
                                                                             $wardid = $row2['xaid'];
                                                                             $name = $row2['name'];
                                                                             if ($wardid == $row1['mapx']) {
-                                                                                echo "<option value='" . $wardid . "' selected>" . $name . "</option>";
+                                                                                echo "<option  value='" . $wardid . "' selected>" . $name . "</option>";
                                                                                 continue;
                                                                             }
                                                                             // Option
-                                                                            echo "<option value='" . $wardid . "' >" . $name . "</option>";
+                                                                            echo "<option  value='" . $wardid . "' >" . $name . "</option>";
                                                                         }
                                                                         ?>
                                                                     </select>
@@ -411,94 +315,12 @@
 
                                 </div>
                             </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingFive">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                            <i class="fa fa-heart"></i>
-                                            My wishlists
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                    <div class="wishlist-content">
-                                        <div class="table-responsive">
-
-                                            <table class="table table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Image</th>
-                                                        <th>Product Name</th>
-                                                        <th>Model</th>
-                                                        <th>Stock</th>
-                                                        <th>Unit Price</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <?php
-                                                        $query = "SELECT *FROM tbl_wishlist where customerid = '$_SESSION[id]'";
-                                                        $results = mysqli_query($conn, $query);
-
-                                                        while ($row = mysqli_fetch_array($results)) {
-                                                            $query = "SELECT *FROM tbl_product where id = '$row[productid]'";
-                                                            $run = mysqli_query($conn,$query);
-                                                            $product = mysqli_fetch_array($run);
-                                                            ?>
-
-                                                            <td><a href="#" class="text-center"><img style="width: 100px; height: 100px;" src="index.php/../images/product/<?php echo $product['image']?>" alt=""> </a></td>
-                                                            <td>
-                                                                <a href="single-product.html"><?php echo $product['name'];?></a>
-                                                            </td>
-                                                            <td><?php 
-                                                              $query = "SELECT *FROM tbl_category where id = '$product[category]'";
-                                                              $run1 = mysqli_query($conn,$query);
-                                                              $category = mysqli_fetch_array($run1);
-                                                            echo $category['title'];
-                                                            ?></td>
-                                                            <td>
-                                                            <?php
-                                                            $run2 = mysqli_query($conn, "select sum(amount) as sum from tbl_product_detail where product_id = $row[productid];");
-                                                            $amount = mysqli_fetch_array($run2);
-                                                            echo $amount['sum'];
-                                                            ?>
-                                                            </td> 
-                                                            <td class="unit-price"><?php echo $product['price'];?></td>
-                                                            <td>
-                                                                <div class="wishlist-actions">
-                                                                    <button type="button" data-toggle="tooltip" title="Add to Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                                                    <button type="button" class="remove-wishlist" value="<?php echo $product['id'];?>" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
-                                                                </div>
-                                                            </td>
-                                                    </tr>
-                                                <?php } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- <button type="submit" value="Continue" class="check-button">Continue</button> -->
-                                    </div>
-                                    <!-- <div class="panel-body">
-                                        <div class="col-sm-12">
-                                            <div class="wishlist-container">
-                                                <h3>New Wishlist</h3>
-                                                <form action="#">
-                                                    <label>Name</label>
-                                                    <input type="text">
-                                                    <div class="save-button">
-                                                        <button type="submit">save</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                </div>
-                            </div>
+                          
                         </div>
-                        <div class="account-button">
+                        <!-- <div class="account-button">
                             <div class="back-btn"> <a href="#">Back to your Account</a> </div>
                             <div class="home"> <a href="index.html"> home</a> </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -549,7 +371,7 @@
     <script src="js/main.js"></script>
 
 
-    <script src="public/js/onchangeprovinceanddistrict.js"></script>
+    <script src="public/js/changingaddress.js"></script>
     <script src="public/js/remove-wishlist.js"></script>
     <script>
         $('.new-password, .retype-new-password').on('keyup', function() {
@@ -574,7 +396,7 @@
             });
         });
     </script>
-
+    
 
 
 
